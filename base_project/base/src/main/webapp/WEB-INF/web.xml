@@ -19,6 +19,15 @@
 		<url-pattern>/enqueue</url-pattern>
 	</servlet-mapping>
 
+    <servlet>
+        <servlet-name>taskQ</servlet-name>
+        <servlet-class>cs263w16.TaskDataQ</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>taskQ</servlet-name>
+        <url-pattern>/taskqueue</url-pattern>
+    </servlet-mapping>
+
 	<servlet>
 		<servlet-name>worker</servlet-name>
 		<servlet-class>cs263w16.Worker</servlet-class>

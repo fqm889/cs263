@@ -29,6 +29,7 @@ public class DatastoreResource {
         List<TaskData> list = new ArrayList<TaskData>();
         //add your code here
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
         Query q = new Query("TaskData");
         PreparedQuery pq = datastore.prepare(q);
         for (Entity e : pq.asIterable()) {
@@ -37,6 +38,9 @@ public class DatastoreResource {
             Date date = (Date) e.getProperty("date");
             TaskData td = new TaskData(kn, val, date);
             list.add(td);
+            if (!syncCache.contains(kn)) {
+                syncCache.put(kn, e);
+            }
         }
 
         return list;
@@ -50,6 +54,7 @@ public class DatastoreResource {
         //same code as above method
         List<TaskData> list = new ArrayList<TaskData>();
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
         Query q = new Query("TaskData");
         PreparedQuery pq = datastore.prepare(q);
         for (Entity e : pq.asIterable()) {
@@ -58,6 +63,9 @@ public class DatastoreResource {
             Date date = (Date) e.getProperty("date");
             TaskData td = new TaskData(kn, val, date);
             list.add(td);
+            if (!syncCache.contains(kn)) {
+                syncCache.put(kn, e);
+            }
         }
 
         return list;
@@ -74,11 +82,14 @@ public class DatastoreResource {
         System.out.println("Posting new TaskData: " +keyname+" val: "+value+" ts: "+date);
         //add your code here
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
+
         TaskData td = new TaskData(keyname, value, date);
         Entity tne = new Entity("TaskData", td.getKeyname());
         tne.setProperty("value", td.getValue());
         tne.setProperty("date", td.getDate());
         datastore.put(tne);
+        syncCache.put(keyname, tne);
 
         servletResponse.sendRedirect("../done.html");
     }

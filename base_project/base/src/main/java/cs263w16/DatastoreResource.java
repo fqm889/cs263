@@ -84,10 +84,9 @@ public class DatastoreResource {
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
 
-        TaskData td = new TaskData(keyname, value, date);
-        Entity tne = new Entity("TaskData", td.getKeyname());
-        tne.setProperty("value", td.getValue());
-        tne.setProperty("date", td.getDate());
+        Entity tne = new Entity("TaskData", keyname);
+        tne.setProperty("value", value);
+        tne.setProperty("date", new Date());
         datastore.put(tne);
         syncCache.put(keyname, tne);
 

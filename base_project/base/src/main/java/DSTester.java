@@ -136,7 +136,7 @@ public class DSTester {
     //Create a TaskData
     Form form =new Form();
     form.param("keyname", keyname);
-    form.param("keyname","100");
+    form.param("value","100");
     response = service.path("rest").path("ds").request().post(Entity.entity(form,MediaType.APPLICATION_FORM_URLENCODED),Response.class);
 
     // Return code should be 204 == no response

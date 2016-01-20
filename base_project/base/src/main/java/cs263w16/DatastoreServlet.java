@@ -78,10 +78,10 @@ public class DatastoreServlet extends HttpServlet {
                   Object ent = syncCache.get(kn);
                   String v;
                   if (ent.getClass().equals(Entity.class)) {
-                      v = (String)((Entity) syncCache.get(kn)).getProperty("value");
+                      v = (String)((Entity) ent).getProperty("value");
                   }
                   else {
-                      v = (String) syncCache.get(kn);
+                      v = (String) ent;
                   }
                   String out = String.format("<h3>Stored %s and %s in Memcache</h3>", kn, v);
                   resp.getWriter().println(out);

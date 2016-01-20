@@ -26,7 +26,18 @@ public class TaskDataResource {
         //add your code here (get Entity from datastore using this.keyname)
         // throw new RuntimeException("Get: TaskData with " + keyname +  " not found");
         //if not found
-        return null;
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Key k = KeyFactory.createKey("TaskData", this.keyname);
+        try {
+            Entity tne = datastore.get(k);
+            String val = (String) tne.getProperty("value");
+            Date date = (Date) tne.getProperty("date");
+            TaskData td = new TaskData(this.keyname, val, date);
+            return td;
+
+        } catch (EntityNotFoundException e) {
+            throw new RuntimeException("Get: TaskData with " + this.keyname +  " not found");
+        }
     }
 
     // for the application
@@ -34,7 +45,18 @@ public class TaskDataResource {
     @Produces({ MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON })
     public TaskData getTaskData() {
         //same code as above method
-        return null;
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Key k = KeyFactory.createKey("TaskData", this.keyname);
+        try {
+            Entity tne = datastore.get(k);
+            String val = (String) tne.getProperty("value");
+            Date date = (Date) tne.getProperty("date");
+            TaskData td = new TaskData(this.keyname, val, date);
+            return td;
+
+        } catch (EntityNotFoundException e) {
+            throw new RuntimeException("Get: TaskData with " + this.keyname +  " not found");
+        }
     }
 
     @PUT
@@ -44,10 +66,24 @@ public class TaskDataResource {
         //add your code here
         //first check if the Entity exists in the datastore
         //if it is not, create it and
-        //signal that we created the entity in the datastore
-        res = Response.created(uriInfo.getAbsolutePath()).build();
-        //else signal that we updated the entity
-        res = Response.noContent().build();
+
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Key k = KeyFactory.createKey("TaskData", this.keyname);
+        try {
+            Entity tne = datastore.get(k);
+            tne.setProperty("value", val);
+            tne.setProperty("date", new Date());
+            datastore.put(tne);
+            //else signal that we updated the entity
+            res = Response.noContent().build();
+        } catch (EntityNotFoundException e) {
+            Entity tne = new Entity("TaskData", this.keyname);
+            tne.setProperty("value", val);
+            tne.setProperty("date", new Date());
+            datastore.put(tne);
+            //signal that we created the entity in the datastore
+            res = Response.created(uriInfo.getAbsolutePath()).build();
+        }
 
         return res;
     }
@@ -57,6 +93,15 @@ public class TaskDataResource {
 
         //delete an entity from the datastore
         //just print a message upon exception (don't throw)
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        Key k = KeyFactory.createKey("TaskData", this.keyname);
+        try {
+            Entity tne = datastore.get(k);
+            datastore.delete(k);
+        } catch (EntityNotFoundException e) {
+            System.out.println("TaskData with keyname " + this.keyname + " does not exist.");
+        }
+
     }
 }
 

@@ -32,9 +32,12 @@ public class DatastoreResource {
         Query q = new Query("TaskData");
         PreparedQuery pq = datastore.prepare(q);
         for (Entity e : pq.asIterable()) {
-
+            String kn = e.getKey().getName();
+            String val = (String) e.getProperty("value");
+            Date date = (Date) e.getProperty("date");
+            TaskData td = new TaskData(kn, val, date);
+            list.add(td);
         }
-
 
         return list;
     }
@@ -48,8 +51,16 @@ public class DatastoreResource {
         List<TaskData> list = new ArrayList<TaskData>();
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         Query q = new Query("TaskData");
+        PreparedQuery pq = datastore.prepare(q);
+        for (Entity e : pq.asIterable()) {
+            String kn = e.getKey().getName();
+            String val = (String) e.getProperty("value");
+            Date date = (Date) e.getProperty("date");
+            TaskData td = new TaskData(kn, val, date);
+            list.add(td);
+        }
 
-        return null;
+        return list;
     }
 
     //Add a new entity to the datastore
@@ -62,6 +73,13 @@ public class DatastoreResource {
         Date date = new Date();
         System.out.println("Posting new TaskData: " +keyname+" val: "+value+" ts: "+date);
         //add your code here
+        DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+        TaskData td = new TaskData(keyname, value, date);
+        Entity tne = new Entity("TaskData", td.getKeyname());
+        tne.setProperty("value", td.getValue());
+        tne.setProperty("date", td.getDate());
+        datastore.put(tne);
+
         servletResponse.sendRedirect("../done.html");
     }
 

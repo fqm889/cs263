@@ -84,13 +84,18 @@ public class DatastoreResource {
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         MemcacheService syncCache = MemcacheServiceFactory.getMemcacheService();
 
-        Entity tne = new Entity("TaskData", keyname);
-        tne.setProperty("value", value);
-        tne.setProperty("date", new Date());
-        datastore.put(tne);
-        syncCache.put(keyname, tne);
-
-        servletResponse.sendRedirect("../done.html");
+        if (keyname==null || value==null) {
+            servletResponse.setStatus(204);
+        }
+        else {
+            Entity tne = new Entity("TaskData", keyname);
+            tne.setProperty("value", value);
+            tne.setProperty("date", new Date());
+            datastore.put(tne);
+            syncCache.put(keyname, tne);
+            //servletResponse.sendRedirect("/Done.html");
+            servletResponse.setStatus(204);
+        }
     }
 
     //The @PathParam annotation says that keyname can be inserted as parameter after this class's route /ds

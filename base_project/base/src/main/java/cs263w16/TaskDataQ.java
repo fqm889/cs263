@@ -23,6 +23,6 @@ public class TaskDataQ extends HttpServlet {
         Queue queue = QueueFactory.getDefaultQueue();
         queue.add(TaskOptions.Builder.withUrl("/rest/ds").method(TaskOptions.Method.POST).param("keyname", key).param("value", val));
 
-        response.sendRedirect("/done.html");
+        response.sendRedirect("/Done.html");
     }
 }

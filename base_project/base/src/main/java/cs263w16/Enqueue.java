@@ -20,7 +20,7 @@ public class Enqueue extends HttpServlet {
         queue.add(TaskOptions.Builder.withUrl("/worker").param("keyname", key).param("value", val));
         // queue.add(TaskOptions.Builder.withUrl("/rest/ds").method(TaskOptions.Method.POST).param("keyname", key).param("value", val));
 
-        response.sendRedirect("/done.html");
+        response.sendRedirect("/Done.html");
     }
 }
 

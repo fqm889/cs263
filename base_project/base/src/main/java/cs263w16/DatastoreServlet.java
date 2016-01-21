@@ -33,16 +33,14 @@ public class DatastoreServlet extends HttpServlet {
 
       if (keyname!=null) {
           if (value != null) {
-//              Entity tne = new Entity("TaskData",keyname);
-//              tne.setProperty("value", value);
-//              Date date = new Date();
-//              tne.setProperty("date", date);
-//              datastore.put(tne);
-//              String out = String.format("<h3>Stored %s and %s in Datastore</h3>", keyname, value);
-//              resp.getWriter().println(out);
+              Entity tne = new Entity("TaskData",keyname);
+              tne.setProperty("value", value);
+              Date date = new Date();
+              tne.setProperty("date", date);
+              datastore.put(tne);
 
-              syncCache.put(keyname, value);
-              String out = String.format("<h3>Stored %s and %s in Memcache</h3>", keyname, value);
+              syncCache.put(keyname, tne);
+              String out = String.format("<h3>TaskData keyname:%s with value:%s on Date:%s in Datastore</h3>", keyname, value, date);
               resp.getWriter().println(out);
           }
           else {
@@ -58,7 +56,7 @@ public class DatastoreServlet extends HttpServlet {
                   resp.getWriter().println(out);
                   if (inmc) resp.getWriter().println("Both");
                   else {
-                      syncCache.put(keyname, tne.getProperty("value"));
+                      syncCache.put(keyname, tne);
                       resp.getWriter().println("Datastore");
                   }
               } catch (EntityNotFoundException e) {
@@ -75,23 +73,20 @@ public class DatastoreServlet extends HttpServlet {
               Key key = res.getKey();
               String kn = key.getName();
               if (syncCache.contains(kn)) {
-                  Object ent = syncCache.get(kn);
-                  String v;
-                  if (ent.getClass().equals(Entity.class)) {
-                      v = (String)((Entity) ent).getProperty("value");
-                  }
-                  else {
-                      v = (String) ent;
-                  }
-                  String out = String.format("<h3>Stored %s and %s in Memcache</h3>", kn, v);
+                  Entity ent = (Entity) syncCache.get(kn);
+                  String v = (String) ent.getProperty("value");
+                  Date date = (Date) ent.getProperty("date");
+                  String out = String.format("<h3>TaskData keyname:%s with value:%s on Date:%s in Datastore</h3>", kn, v, date);
                   resp.getWriter().println(out);
               }
               else {
                   Key k = KeyFactory.createKey("TaskData", kn);
                   try {
-                      String val = (String)datastore.get(k).getProperty("value");
-                      syncCache.put(kn, val);
-                      String out = String.format("<h3>Stored %s and %s in DataStore and stored in Memcache</h3>", kn, val);
+                      Entity ent = datastore.get(k);
+                      String val = (String) ent.getProperty("value");
+                      Date date = (Date) ent.getProperty("date");
+                      syncCache.put(kn, ent);
+                      String out = String.format("<h3>TaskData keyname:%s with value:%s on Date:%s in Datastore</h3>", kn, val, date);
                       resp.getWriter().println(out);
                   } catch (EntityNotFoundException e) {
                   }

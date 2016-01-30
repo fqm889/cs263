@@ -44,5 +44,10 @@ Here are the grammer we are going to implement.
 
  ```
  
- All Lists are implemented with ArrayList. The intepreter executes the statement, sending the states and results to Google App Engine 
- in JSON.  
+ All Lists are implemented with ArrayList. 
+ 
+ The intepreter executes the statement, sending the states and results to Google App Engine in JSON.
+ 
+ The intepreter takes in requests from clients through the GAE and executes the code statement by statement. After executing one statement, 
+ current status is sent to GAE to be sent to all clients. The current status will be shown on webpage of clients as debug information, thus enabling everyone 
+ to watch and debug at the same time. 

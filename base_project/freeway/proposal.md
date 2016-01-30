@@ -59,11 +59,11 @@ Here are the grammer we are going to implement.
 
 The webpage has the following functions:
 
-1, Get the source code from the database.
+1. Get the source code from the database.
 
-2, Remotely view and track the states of the interpreter as the debug goes.
+2. Remotely view and track the states of the interpreter as the debug goes.
 
-3, Send instructions to the remote interpreter.
+3. Send instructions to the remote interpreter.
 
 We will use JSON to communicate with the servlet.
 
@@ -77,26 +77,26 @@ At the page, all the clients can send next step or stop to the interpreter throu
 
 The servlet has the following functions:
 
-1, Keep track of all the clients that is currently track the debug process.
+1. Keep track of all the clients that is currently track the debug process.
 
-2, Take the result from the interpreter and send to all the client.
+2. Take the result from the interpreter and send to all the client.
  
-3, Store the source code to the database.
+3. Store the source code to the database.
 
-4, Put the latest debug state in memcache.
+4. Put the latest debug state in memcache.
 
 The servlet take two kinds of request from the interpreter:
 
-1, StoreCode. Which is to store the code in the database indicates the current code the interpreter is running.
+1. StoreCode. Which is to store the code in the database indicates the current code the interpreter is running.
 
-2, PushState. Which is to push the current state of the debug process to all the client.
+2. PushState. Which is to push the current state of the debug process to all the client.
 
 The servlet take two kinds of request from the client:
 
-1, StartWatching. Which is to start watching the current debug process. Servlet should return the source code and current state.
+1. StartWatching. Which is to start watching the current debug process. Servlet should return the source code and current state.
 
-2, NextStep. Which is a instruction to the interpreter.
+2. NextStep. Which is a instruction to the interpreter.
 
-3, StopDebug. Also a instruction to the interpreter.
+3. StopDebug. Also a instruction to the interpreter.
 
 

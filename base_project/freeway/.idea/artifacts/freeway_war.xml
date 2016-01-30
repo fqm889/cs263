@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="freeway:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="freeway-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="freeway:war exploded" />
+    </root>
+  </artifact>
+</component>

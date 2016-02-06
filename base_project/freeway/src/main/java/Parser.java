@@ -4,6 +4,120 @@ import java.util.ArrayList;
  * Created by sicongfeng on 16/2/5.
  */
 public class Parser {
+
+    String GetWordList(InputStream input){
+        List list = new LinkedList();
+        int tmp;
+        String cur="";
+        while ((tmp = input.read())!=-1){
+            char c = (char) tmp;
+            if (cur[0]=='"'&&c!='"'){
+                cur+=c;
+            }
+            else if (c==' '||c==','){
+                if (cur!="")
+                    list.add(cur);
+                cur="";
+            }
+            else if (c=='['||c==']'||c=='('||c==')'){
+                if (cur!="")
+                    list.add(cur);
+                cur="";
+                cur+=c;
+                list.add(cur);
+                cur="";
+            }
+            else {
+                cur+=c;
+            }
+        }
+    } 
+
+    static Expr getExpr(iterator ite){
+        String str = (String) ite.next();
+        if (str==']'||str==')')
+            return null;
+        if (str[0] == '"'){
+            return new Str(str);
+        }
+        else if (str[0] == '\''){
+            return new Char(str[1]);
+        }
+        else if (str[0] == '+'||str[0]=='-'||(str[0]>='0'&&str[0]<='9')||str[0]=='.'){
+            int flag=0;
+            for (int i=0;i<str.length();i++){
+                if (str[i]=='.')
+                    flag=1;
+            }
+            if (flag){
+                return new Real(Double.parseDouble(str));
+            }
+            eles {
+                return new Int(Int.parseInt(str));
+            }
+        }
+        else if (str=="["){
+            ListArray la = new ListArray();
+            Expr tmp = getExpr(ite);
+            while (tmp != null){
+                la.Add(tmp);
+                tmp = getExpr(ite);
+            }
+            return la;
+        }
+        else if (str == "("){
+            str = (String) ite.next();
+            if (str == "def"){
+                Symbol sym = new Symbol((String) ite.next());
+                Expr x = getExpr(ite);
+                str = (String) ite.next();
+                return new DEF(sym,x);
+            }
+            else if (str == "defn"){
+                Symbol sym = new Symbol((String) ite.next());
+                ArrayList<Expr> args;
+                str = (String) ite.next();
+                if (str == '['){
+                    str = (String) ite.next();
+                    while (str != ']'){
+                        args.add(new Symbol(str));
+                    }
+                }
+                Expr e = getExpr(ite);
+                str = (String) ite.next();
+                return new DEFN(sym,args,e);
+            }
+            else if (str == "if"){
+                Expr e = getExpr(ite);
+                Expr t = getExpr(ite);
+                Expr f = getExpr(ite);
+                if (f!=null)
+                    ste=(String) ite.next();
+                return new IF(e,t,f);
+            }
+        }
+    }
+
+    public static Expr ReadFile(String filename){
+        File file = new File(filename);
+        InputStream input = null;
+        input = new FileInputStream(file);
+        List wordlist = GetWordList(input);
+        Iterator ite = wordlist.iterator();
+        Expr program = null;
+        Expr cur = null;
+        while (ite.hasNext()){
+            Expr tmp = getExpr(ite);
+            if (program == null){
+                program = tmp;
+                cur = tmp;
+            }
+            else {
+                cur.next=tmp;
+                cur=tmp;
+            }
+        }
+    }
 }
 
 

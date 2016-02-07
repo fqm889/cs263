@@ -1,59 +1,70 @@
 import java.util.ArrayList;
-
+import java.util.Iterator;
+import java.util.List;
+import java.io.*;
+import java.util.LinkedList;
 /**
  * Created by sicongfeng on 16/2/5.
  */
 public class Parser {
 
-    String GetWordList(InputStream input){
+    static List GetWordList(InputStream input){
         List list = new LinkedList();
         int tmp;
         String cur="";
-        while ((tmp = input.read())!=-1){
-            char c = (char) tmp;
-            if (cur[0]=='"'&&c!='"'){
-                cur+=c;
-            }
-            else if (c==' '||c==','){
-                if (cur!="")
+        try {
+            while ((tmp = input.read())!=-1){
+                char c = (char) tmp;
+                if (cur.charAt(0)=='"'&&c!='"'){
+                    cur+=c;
+                }
+                else if (c==' '||c==','){
+                    if (cur!="")
+                        list.add(cur);
+                    cur="";
+                }
+                else if (c=='['||c==']'||c=='('||c==')'){
+                    if (cur!="")
+                        list.add(cur);
+                    cur="";
+                    cur+=c;
                     list.add(cur);
-                cur="";
-            }
-            else if (c=='['||c==']'||c=='('||c==')'){
-                if (cur!="")
-                    list.add(cur);
-                cur="";
-                cur+=c;
-                list.add(cur);
-                cur="";
-            }
-            else {
-                cur+=c;
+                    cur="";
+                }
+                else {
+                    cur+=c;
+                }
             }
         }
+        catch (IOException e){
+            System.out.println("Error!");
+        }
+        if (cur!="")
+            list.add(cur);
+        return list;
     } 
 
-    static Expr getExpr(iterator ite){
+    static Expr getExpr(Iterator ite){
         String str = (String) ite.next();
-        if (str==']'||str==')')
+        if (str=="]"||str==")")
             return null;
-        if (str[0] == '"'){
+        if (str.charAt(0) == '"'){
             return new Str(str);
         }
-        else if (str[0] == '\''){
-            return new Char(str[1]);
+        else if (str.charAt(0) == '\''){
+            return new Char(str.charAt(1));
         }
-        else if (str[0] == '+'||str[0]=='-'||(str[0]>='0'&&str[0]<='9')||str[0]=='.'){
+        else if (str.charAt(0) == '+'||str.charAt(0)=='-'||(str.charAt(0)>='0'&&str.charAt(0)<='9')||str.charAt(0)=='.'){
             int flag=0;
             for (int i=0;i<str.length();i++){
-                if (str[i]=='.')
+                if (str.charAt(i)=='.')
                     flag=1;
             }
-            if (flag){
+            if (flag==1){
                 return new Real(Double.parseDouble(str));
             }
-            eles {
-                return new Int(Int.parseInt(str));
+            else {
+                return new Int(Integer.parseInt(str));
             }
         }
         else if (str=="["){
@@ -71,15 +82,15 @@ public class Parser {
                 Symbol sym = new Symbol((String) ite.next());
                 Expr x = getExpr(ite);
                 str = (String) ite.next();
-                return new DEF(sym,x);
+                return new DEF(sym,(Value)x);
             }
             else if (str == "defn"){
                 Symbol sym = new Symbol((String) ite.next());
-                ArrayList<Expr> args;
+                ArrayList<Expr> args = new ArrayList<Expr>();
                 str = (String) ite.next();
-                if (str == '['){
+                if (str == "["){
                     str = (String) ite.next();
-                    while (str != ']'){
+                    while (str != "]"){
                         args.add(new Symbol(str));
                     }
                 }
@@ -92,16 +103,93 @@ public class Parser {
                 Expr t = getExpr(ite);
                 Expr f = getExpr(ite);
                 if (f!=null)
-                    ste=(String) ite.next();
+                    str=(String) ite.next();
                 return new IF(e,t,f);
             }
+            else if (str == "loop"){
+                str = (String) ite.next();
+                if (str != "["){
+                    System.out.println("Error!");
+                }
+                ArrayList<Expr> l = new ArrayList<Expr>();
+                Expr tmp = getExpr(ite);
+                while (tmp != null){
+                    l.add(tmp);
+                    tmp = getExpr(ite);
+                }
+                Expr e = getExpr(ite);
+                str = (String) ite.next();
+                if (str != "("){
+                    System.out.println("Error!");
+                }
+                str = (String) ite.next();
+                if (str != "recur"){
+                    System.out.println("Error!");
+                }
+                ArrayList<Expr> rec = new ArrayList<Expr>();
+                tmp = getExpr(ite);
+                while (tmp != null){
+                    rec.add(tmp);
+                    tmp = getExpr(ite);
+                }
+                str = (String) ite.next();
+                return new LOOP(l,e,rec);
+            }
+            else if (str == "let"){
+                str = (String) ite.next();
+                if (str != "["){
+                    System.out.println("Error!");
+                }
+                ArrayList<Expr> l = new ArrayList<Expr>();
+                Expr tmp = getExpr(ite);
+                while (tmp != null){
+                    l.add(tmp);
+                    tmp = getExpr(ite);
+                }
+                Expr e = getExpr(ite);
+                str = (String) ite.next();
+                return new LET(l,e);
+            }
+            else if (str == "fn"){
+                str = (String) ite.next();
+                if (str != "["){
+                    System.out.println("Error!");
+                }
+                ArrayList<Expr> args = new ArrayList<Expr>();
+                Expr tmp = getExpr(ite);
+                while (tmp != null){
+                    args.add(tmp);
+                    tmp = getExpr(ite);
+                }
+                Expr e = getExpr(ite);
+                str = (String) ite.next();
+                return new Closure(args,e);
+            }
+            else {
+                Symbol fn = new Symbol(str);
+                ArrayList<Expr> e = new ArrayList<Expr>();
+                Expr tmp = getExpr(ite);
+                while (tmp != null){
+                    e.add(tmp);
+                    tmp = getExpr(ite);
+                }
+                return new CALL(fn,e);
+            }
+        }
+        else {
+            return new Symbol(str);
         }
     }
 
     public static Expr ReadFile(String filename){
         File file = new File(filename);
         InputStream input = null;
-        input = new FileInputStream(file);
+        try{
+            input = new FileInputStream(file);
+        }
+        catch (IOException e){
+            System.out.println("Error!");
+        }
         List wordlist = GetWordList(input);
         Iterator ite = wordlist.iterator();
         Expr program = null;
@@ -117,6 +205,7 @@ public class Parser {
                 cur=tmp;
             }
         }
+        return program;
     }
 }
 
@@ -392,5 +481,24 @@ class IF extends Expr {
 
     public Expr getF() {
         return F;
+    }
+}
+
+class CALL extends Expr {
+    Symbol fn;
+    ArrayList<Expr> e;
+
+    CALL(Symbol f, ArrayList<Expr> e){
+        type = "CALL";
+        fn = f;
+        this.e = e;
+    }
+
+    public Symbol getFn() {
+        return fn;
+    }
+
+    public ArrayList<Expr> getE() {
+        return e;
     }
 }

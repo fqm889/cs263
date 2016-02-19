@@ -1,7 +1,7 @@
 package orz.AST;
 
-import orz.Expr;
-import orz.Symbol;
+import orz.AST.Expr;
+import orz.AST.Symbol;
 
 /**
  * Created by sicongfeng on 16/2/19.

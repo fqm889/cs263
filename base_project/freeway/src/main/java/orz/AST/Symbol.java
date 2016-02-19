@@ -1,9 +1,9 @@
-package AST;
+package orz.AST;
 
 /**
  * Created by sicongfeng on 16/2/19.
  */
-public class Symbol extends Expr{
+public class Symbol extends orz.AST.Expr {
     String nameS;
     public Symbol(String name) {
         type = "Symbol";

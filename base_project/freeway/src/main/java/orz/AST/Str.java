@@ -1,9 +1,9 @@
-package AST;
+package orz.AST;
 
 /**
  * Created by sicongfeng on 16/2/19.
  */
-public class Str extends Value {
+public class Str extends orz.AST.Expr {
     String s;
     public Str(String i) {
         type = "String";

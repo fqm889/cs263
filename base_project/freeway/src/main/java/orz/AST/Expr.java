@@ -1,4 +1,4 @@
-package AST;
+package orz.AST;
 
 /**
  * Created by sicongfeng on 16/2/19.
@@ -6,6 +6,12 @@ package AST;
 public class Expr {
     String type;
     Expr next;
+    int row, col;
+
+//    public Expr(int col, int row) {
+//        this.col = col;
+//        this.row = row;
+//    }
 
     public String getType() {
         return type;
@@ -18,4 +24,5 @@ public class Expr {
     public Expr getNext() {
         return next;
     }
+
 }

@@ -1,24 +1,24 @@
-package AST;
+package orz.AST;
 
 import java.util.ArrayList;
 
 /**
  * Created by sicongfeng on 16/2/19.
  */
-public class ListArray extends Value {
-    ArrayList<Expr> arr;
+public class ListArray extends orz.AST.Expr {
+    ArrayList<orz.AST.Expr> arr;
 
-    ListArray(ArrayList<Expr> a) {
+    ListArray(ArrayList<orz.AST.Expr> a) {
         type = "List";
         arr = a;
     }
 
     public ListArray() {
         type = "List";
-        arr = new ArrayList<Expr>();
+        arr = new ArrayList<orz.AST.Expr>();
     }
 
-    public void Add(Expr e) {
+    public void Add(orz.AST.Expr e) {
         arr.add(e);
     }
 

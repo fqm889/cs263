@@ -1,9 +1,9 @@
-package AST;
+package orz.AST;
 
 /**
  * Created by sicongfeng on 16/2/19.
  */
-public class Real extends Value {
+public class Real extends orz.AST.Expr {
     Double d;
     public Real(Double i) {
         type = "Real";

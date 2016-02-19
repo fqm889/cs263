@@ -1,9 +1,11 @@
-package AST;
+package orz.AST;
+
+import orz.Expr;
 
 /**
  * Created by sicongfeng on 16/2/19.
  */
-public class Char extends Value {
+public class Char extends Expr {
     Character c;
     public Char(Character i) {
         type = "Char";

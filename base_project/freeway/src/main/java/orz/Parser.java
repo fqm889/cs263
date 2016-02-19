@@ -1,4 +1,7 @@
-import AST.*;
+package orz;
+
+import orz.AST.*;
+import orz.Type.Value;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -165,7 +168,7 @@ public class Parser {
                 }
                 Expr e = getExpr(ite);
                 str = (String) ite.next();
-                return new Closure(args,e);
+                return new Function(args,e);
             }
             else {
                 Symbol fn = new Symbol(str);
@@ -209,6 +212,8 @@ public class Parser {
         }
         return program;
     }
+
+
 }
 
 

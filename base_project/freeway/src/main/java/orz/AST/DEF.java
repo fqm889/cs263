@@ -1,4 +1,8 @@
-package AST;
+package orz.AST;
+
+import orz.Expr;
+import orz.Symbol;
+import orz.Type.Value;
 
 /**
  * Created by sicongfeng on 16/2/19.

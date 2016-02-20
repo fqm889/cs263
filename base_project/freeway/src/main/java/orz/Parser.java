@@ -14,31 +14,44 @@ import java.lang.String;
  */
 public class Parser {
 
-    static List<String> GetWordList(InputStream input){
-        List<String> list = new LinkedList();
-        int tmp;
+    static List<Token> GetWordList(InputStream input){
+        List<Token> list = new LinkedList();
+        int tmp,line=0,col=0,curline=-1,curcol=0;
         String cur="";
         try {
             while ((tmp = input.read())!=-1){
                 char c = (char) tmp;
-                if (cur.charAt(0)=='"'&&c!='"'){
+                if (!cur.equals("")&&cur.charAt(0)=='"'&&c!='"'){
                     cur+=c;
                 }
-                else if (c==' '||c==','){
+                else if (c==' '||c==','||c=='\n'){
                     if (!cur.equals(""))
-                        list.add(cur);
+                        list.add(new Token(cur,curline,curcol));
                     cur="";
+                    curline=-1;
                 }
                 else if (c=='['||c==']'||c=='('||c==')'){
                     if (!cur.equals(""))
-                        list.add(cur);
+                        list.add(new Token(cur,curline,curcol));
                     cur="";
                     cur+=c;
-                    list.add(cur);
+                    list.add(new Token(cur,line,col));
                     cur="";
+                    curline=-1;
                 }
                 else {
+                    if (curline==-1){
+                        curline=line;
+                        curcol=col;
+                    }
                     cur+=c;
+                }
+                if (c=='\n'){
+                    line++;
+                    col=0;
+                }
+                else {
+                    col++;
                 }
             }
         }
@@ -46,19 +59,22 @@ public class Parser {
             System.out.println("Error!");
         }
         if (!cur.equals(""))
-            list.add(cur);
+            list.add(new Token(cur,curline,curcol));
         return list;
     } 
 
     static Expr getExpr(Iterator ite){
-        String str = (String) ite.next();
+        Token tok = (Token) ite.next();
+        String str = tok.sym;
+        int row = tok.row;
+        int col = tok.col;
         if (str.equals("]")||str.equals(")"))
             return null;
         if (str.charAt(0) == '"'){
-            return new Str(str);
+            return new Str(row,col,str);
         }
         else if (str.charAt(0) == '\''){
-            return new Char(str.charAt(1));
+            return new Char(row,col,str.charAt(1));
         }
         else if (str.charAt(0) == '+'||str.charAt(0)=='-'||(str.charAt(0)>='0'&&str.charAt(0)<='9')||str.charAt(0)=='.'){
             int flag=0;
@@ -67,14 +83,14 @@ public class Parser {
                     flag=1;
             }
             if (flag==1){
-                return new Real(Double.parseDouble(str));
+                return new Real(row,col,Double.parseDouble(str));
             }
             else {
-                return new Int(Integer.parseInt(str));
+                return new Int(row,col,Integer.parseInt(str));
             }
         }
         else if (str.equals("[")){
-            ListArray la = new ListArray();
+            ListArray la = new ListArray(row,col);
             Expr tmp = getExpr(ite);
             while (tmp != null){
                 la.Add(tmp);
@@ -83,9 +99,11 @@ public class Parser {
             return la;
         }
         else if (str.equals("(")){
-            str = (String) ite.next();
+            tok = (Token) ite.next();
+            str = tok.sym;
             if (str.equals("def")){
-                Symbol sym = new Symbol((String) ite.next());
+                Token tmptok = (Token) ite.next();
+                Symbol sym = new Symbol(tmptok.row,tmptok.col,tmptok.sym);
                 Expr x = getExpr(ite);
                 str = (String) ite.next();
                 return new DEF(sym,(Value)x);
@@ -217,4 +235,12 @@ public class Parser {
 
 }
 
+public class Token{
+    String sym;
+    int row,col;
 
+    public Token(String s, int r, int c){}
+        this.row=r;
+        this.col=c;
+    }
+}

@@ -11,7 +11,7 @@ public class Intepreter {
     }
 
     Value valueOf(Expr e) {
-
+        return null;
     }
 }
 

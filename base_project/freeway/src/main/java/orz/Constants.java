@@ -1,5 +1,7 @@
 package orz;
 
+import orz.Type.*;
+
 /**
  * Created by sicongfeng on 16/2/19.
  */
@@ -19,5 +21,11 @@ public class Constants {
     public static final String ASSIGN_KEYWORD = "set!";
     public static final String LET_KEYWORD = "let";
     public static final String LOOP_KEYWORD = "loop";
+    public static final Value INT_TYPE = new IntT();
+    public static final Value REAL_TYPE = new RealT();
+    public static final Value BOOL_TYPE = new BoolT();
+    public static final Value CHAR_TYPE = new CharT();
+    public static final Value Str_TYPE = new StrT();
+    public static final Value VECTOR_TYPE = new VectorT();
 }
 

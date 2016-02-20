@@ -1,32 +1,32 @@
 package orz.AST;
 
-import orz.Expr;
-import orz.Symbol;
+import orz.Scope;
+import orz.Type.Value;
 
 import java.util.ArrayList;
 
 /**
  * Created by sicongfeng on 16/2/19.
  */
+
 public class DEFN extends Expr {
-    Symbol sym;
-    Closure cls;
-    public DEFN(Symbol s, ArrayList<Expr> args, Expr e) {
+    public Symbol sym;
+    public Function cls;
+
+    public DEFN(int row, int col, Symbol s, ArrayList<Symbol> args, Expr e) {
+        super(row, col);
         type = "DEFN";
         sym = s;
-        cls = new Closure(args, e);
-    }
-
-    public Symbol getSym() {
-        return sym;
-    }
-
-    public Closure getCls() {
-        return cls;
+        cls = new Function(row, col, args, e);
     }
 
     @Override
     public String toString() {
         return "FUNCTION " + sym.toString();
+    }
+
+    @Override
+    public Value interp(Scope s) {
+        return null;
     }
 }

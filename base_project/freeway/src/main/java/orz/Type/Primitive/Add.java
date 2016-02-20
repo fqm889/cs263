@@ -8,8 +8,8 @@ import orz.AST.Expr;
 /**
  * Created by sicongfeng on 16/2/19.
  */
-public class Add extends PrimitiveFunction {
-    public Add() {
+public class ADD extends PrimitiveFunction {
+    public ADD() {
         super("+", 2);
     }
 

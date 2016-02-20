@@ -1,23 +1,26 @@
 package orz.AST;
 
-import orz.Expr;
+import orz.Scope;
+import orz.Type.Value;
 
 /**
  * Created by sicongfeng on 16/2/19.
  */
 public class Bool extends Expr {
-    Boolean v;
-    public Bool(Boolean b) {
+    public boolean v;
+    public Bool(int row, int col, boolean b) {
+        super(row, col);
         type = "Bool";
         v = b;
     }
 
-    public Boolean getV() {
-        return v;
+    @Override
+    public String toString() {
+        return String.valueOf(v);
     }
 
     @Override
-    public String toString() {
-        return v.toString();
+    public Value interp(Scope s) {
+        return null;
     }
 }

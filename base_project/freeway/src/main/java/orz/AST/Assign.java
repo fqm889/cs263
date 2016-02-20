@@ -1,33 +1,24 @@
 package orz.AST;
 
-import orz.AST.Expr;
-import orz.AST.Symbol;
+import orz.Scope;
+import orz.Type.Value;
 
 /**
  * Created by sicongfeng on 16/2/19.
  */
 public class Assign extends Expr {
-    Symbol s;
-    Expr e;
+    public Symbol s;
+    public Expr e;
 
-    public Assign(Symbol s, Expr e) {
+    public Assign(int row, int col, Symbol s, Expr e) {
+        super(row, col);
         this.s = s;
         this.e = e;
     }
 
-    public Symbol getS() {
-        return s;
-    }
+    public Value interp(Scope s) {
+        Value v = e.interp(s);
 
-    public Expr getE() {
-        return e;
-    }
-
-    public void setS(Symbol s) {
-        this.s = s;
-    }
-
-    public void setE(Expr e) {
-        this.e = e;
+        return null;
     }
 }

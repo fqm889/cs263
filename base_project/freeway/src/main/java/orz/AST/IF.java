@@ -1,29 +1,26 @@
 package orz.AST;
 
+import orz.Scope;
+import orz.Type.Value;
+
 /**
  * Created by sicongfeng on 16/2/19.
  */
-public class IF extends orz.AST.Expr {
-    orz.AST.Expr pred;
-    orz.AST.Expr T;
-    orz.AST.Expr F;
+public class IF extends Expr {
+    public Expr pred;
+    public Expr T;
+    public Expr F;
 
-    public IF(orz.AST.Expr p, orz.AST.Expr t, orz.AST.Expr f) {
+    public IF(int row, int col, Expr p, Expr t, Expr f) {
+        super(row, col);
         type = "IF";
         pred = p;
         T = t;
         F = f;
     }
 
-    public orz.AST.Expr getPred() {
-        return pred;
-    }
-
-    public orz.AST.Expr getT() {
-        return T;
-    }
-
-    public orz.AST.Expr getF() {
-        return F;
+    @Override
+    public Value interp(Scope s) {
+        return null;
     }
 }

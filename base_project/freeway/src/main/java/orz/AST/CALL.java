@@ -1,7 +1,7 @@
 package orz.AST;
 
-import orz.Expr;
-import orz.Symbol;
+import orz.Scope;
+import orz.Type.Value;
 
 import java.util.ArrayList;
 
@@ -9,21 +9,24 @@ import java.util.ArrayList;
  * Created by sicongfeng on 16/2/19.
  */
 public class CALL extends Expr {
-    Symbol fn;
-    ArrayList<Expr> e;
+    public Symbol fn;
+    public ArrayList<Expr> e;
 
-    public CALL(Symbol f, ArrayList<Expr> e){
+    public CALL(int row, int col, Symbol f, ArrayList<Expr> e){
+        super(row, col);
         type = "CALL";
         fn = f;
         this.e = e;
     }
 
-    public Symbol getFn() {
-        return fn;
+    @Override
+    public String toString() {
+        return "CALL"+fn.toString();
     }
 
-    public ArrayList<Expr> getE() {
-        return e;
+    @Override
+    public Value interp(Scope s) {
+        return null;
     }
 }
 

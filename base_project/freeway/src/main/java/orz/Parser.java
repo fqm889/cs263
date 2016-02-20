@@ -8,13 +8,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.io.*;
 import java.util.LinkedList;
+import java.lang.String;
 /**
  * Created by sicongfeng on 16/2/5.
  */
 public class Parser {
 
-    static List GetWordList(InputStream input){
-        List list = new LinkedList();
+    static List<String> GetWordList(InputStream input){
+        List<String> list = new LinkedList();
         int tmp;
         String cur="";
         try {
@@ -24,12 +25,12 @@ public class Parser {
                     cur+=c;
                 }
                 else if (c==' '||c==','){
-                    if (cur!="")
+                    if (!cur.equals(""))
                         list.add(cur);
                     cur="";
                 }
                 else if (c=='['||c==']'||c=='('||c==')'){
-                    if (cur!="")
+                    if (!cur.equals(""))
                         list.add(cur);
                     cur="";
                     cur+=c;
@@ -44,14 +45,14 @@ public class Parser {
         catch (IOException e){
             System.out.println("Error!");
         }
-        if (cur!="")
+        if (!cur.equals(""))
             list.add(cur);
         return list;
     } 
 
     static Expr getExpr(Iterator ite){
         String str = (String) ite.next();
-        if (str=="]"||str==")")
+        if (str.equals("]")||str.equals(")"))
             return null;
         if (str.charAt(0) == '"'){
             return new Str(str);
@@ -72,7 +73,7 @@ public class Parser {
                 return new Int(Integer.parseInt(str));
             }
         }
-        else if (str=="["){
+        else if (str.equals("[")){
             ListArray la = new ListArray();
             Expr tmp = getExpr(ite);
             while (tmp != null){
@@ -81,21 +82,21 @@ public class Parser {
             }
             return la;
         }
-        else if (str == "("){
+        else if (str.equals("(")){
             str = (String) ite.next();
-            if (str == "def"){
+            if (str.equals("def")){
                 Symbol sym = new Symbol((String) ite.next());
                 Expr x = getExpr(ite);
                 str = (String) ite.next();
                 return new DEF(sym,(Value)x);
             }
-            else if (str == "defn"){
+            else if (str.equals("defn")){
                 Symbol sym = new Symbol((String) ite.next());
-                ArrayList<Expr> args = new ArrayList<Expr>();
+                ArrayList<Symbol> args = new ArrayList<Symbol>();
                 str = (String) ite.next();
-                if (str == "["){
+                if (str.equals("[")){
                     str = (String) ite.next();
-                    while (str != "]"){
+                    while (!str.equals("]")){
                         args.add(new Symbol(str));
                     }
                 }
@@ -103,7 +104,7 @@ public class Parser {
                 str = (String) ite.next();
                 return new DEFN(sym,args,e);
             }
-            else if (str == "if"){
+            else if (str.equals("if")){
                 Expr e = getExpr(ite);
                 Expr t = getExpr(ite);
                 Expr f = getExpr(ite);
@@ -111,9 +112,9 @@ public class Parser {
                     str=(String) ite.next();
                 return new IF(e,t,f);
             }
-            else if (str == "loop"){
+            else if (str.equals("loop")){
                 str = (String) ite.next();
-                if (str != "["){
+                if (str.equals("[")){
                     System.out.println("Error!");
                 }
                 ArrayList<Expr> l = new ArrayList<Expr>();
@@ -124,11 +125,11 @@ public class Parser {
                 }
                 Expr e = getExpr(ite);
                 str = (String) ite.next();
-                if (str != "("){
+                if (!str.equals("(")){
                     System.out.println("Error!");
                 }
                 str = (String) ite.next();
-                if (str != "recur"){
+                if (!str.equals("recur")){
                     System.out.println("Error!");
                 }
                 ArrayList<Expr> rec = new ArrayList<Expr>();
@@ -140,9 +141,9 @@ public class Parser {
                 str = (String) ite.next();
                 return new LOOP(l,e,rec);
             }
-            else if (str == "let"){
+            else if (str.equals("let")){
                 str = (String) ite.next();
-                if (str != "["){
+                if (str.equals("[")){
                     System.out.println("Error!");
                 }
                 ArrayList<Expr> l = new ArrayList<Expr>();
@@ -155,9 +156,9 @@ public class Parser {
                 str = (String) ite.next();
                 return new LET(l,e);
             }
-            else if (str == "fn"){
+            else if (str.equals("fn")){
                 str = (String) ite.next();
-                if (str != "["){
+                if (!str.equals("[")){
                     System.out.println("Error!");
                 }
                 ArrayList<Symbol> args = new ArrayList<Symbol>();

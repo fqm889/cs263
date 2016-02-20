@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class DEFN extends Expr {
     Symbol sym;
     Closure cls;
-    public DEFN(Symbol s, ArrayList<Expr> args, Expr e) {
+    public DEFN(Symbol s, ArrayList<Symbol> args, Expr e) {
         type = "DEFN";
         sym = s;
         cls = new Closure(args, e);

@@ -1,6 +1,7 @@
 package orz.AST;
 
 import orz.Scope;
+import orz.Type.CharValue;
 import orz.Type.Value;
 
 /**
@@ -23,6 +24,6 @@ public class Char extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        return new CharValue(c);
     }
 }

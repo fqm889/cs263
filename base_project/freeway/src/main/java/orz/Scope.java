@@ -76,6 +76,19 @@ public class Scope {
         else return v;
     }
 
+    public Scope findScope(String name) {
+        Object v = env.get(name);
+        if (v!=null) {
+            return this;
+        }
+        else if (parent!=null) {
+            return parent.findScope(name);
+        }
+        else {
+            return null;
+        }
+    }
+
     public static Scope initScope() {
         Scope init = new Scope();
         init.putValue("+", new ADD());
@@ -104,6 +117,5 @@ public class Scope {
         init.putValue("Vector", Constants.VECTOR_TYPE);
 
         return init;
-
     }
 }

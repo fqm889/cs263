@@ -1,6 +1,7 @@
 package orz.AST;
 
 import orz.Scope;
+import orz.Type.RealValue;
 import orz.Type.Value;
 
 /**
@@ -21,6 +22,6 @@ public class Real extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        return new RealValue(d);
     }
 }

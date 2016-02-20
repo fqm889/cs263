@@ -22,7 +22,7 @@ public class Symbol extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        return s.lookupValue(nameS);
     }
 
     public boolean equals(Symbol s) {

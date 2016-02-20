@@ -21,6 +21,8 @@ public class Constants {
     public static final String ASSIGN_KEYWORD = "set!";
     public static final String LET_KEYWORD = "let";
     public static final String LOOP_KEYWORD = "loop";
+    public static final String RECUR_KEYWORD = "recur";
+
     public static final Value INT_TYPE = new IntT();
     public static final Value REAL_TYPE = new RealT();
     public static final Value BOOL_TYPE = new BoolT();

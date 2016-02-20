@@ -1,6 +1,7 @@
 package orz.AST;
 
 import orz.Scope;
+import orz.Type.BoolValue;
 import orz.Type.Value;
 
 /**
@@ -21,6 +22,6 @@ public class Bool extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        return new BoolValue(v);
     }
 }

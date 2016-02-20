@@ -26,6 +26,12 @@ public class LET extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        Scope ns = new Scope(s);
+        for (int i = 0; i < locals.size(); i+=2) {
+            Symbol sym = (Symbol)(locals.get(i));
+            Value val = locals.get(i+1).interp(ns);
+            ns.putValue(sym.nameS, val);
+        }
+        return e.interp(ns);
     }
 }

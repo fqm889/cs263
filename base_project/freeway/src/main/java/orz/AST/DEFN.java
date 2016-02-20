@@ -1,6 +1,8 @@
 package orz.AST;
 
+import orz.Binding;
 import orz.Scope;
+import orz.Type.Closure;
 import orz.Type.Value;
 
 import java.util.ArrayList;
@@ -27,6 +29,8 @@ public class DEFN extends Expr {
 
     @Override
     public Value interp(Scope s) {
+        Value c = cls.interp(s);
+        Binding.define(sym, c, s);
         return null;
     }
 }

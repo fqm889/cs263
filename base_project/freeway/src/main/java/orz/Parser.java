@@ -235,11 +235,12 @@ public class Parser {
 
 }
 
-public class Token{
-    String sym;
-    int row,col;
+class Token{
+    public String sym;
+    public int row;
+    public int col;
 
-    public Token(String s, int r, int c){}
+    public Token(String s, int r, int c){
         this.row=r;
         this.col=c;
     }

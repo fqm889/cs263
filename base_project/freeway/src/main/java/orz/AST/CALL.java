@@ -1,6 +1,7 @@
 package orz.AST;
 
 import orz.Scope;
+import orz.Type.Closure;
 import orz.Type.Value;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
  * Created by sicongfeng on 16/2/19.
  */
 public class CALL extends Expr {
-    public Symbol fn;
+    public Expr fn;
     public ArrayList<Expr> e;
 
     public CALL(int row, int col, Symbol f, ArrayList<Expr> e){
@@ -26,7 +27,18 @@ public class CALL extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        Value tmp = fn.interp(s);
+        Closure c;
+        if (tmp instanceof Closure)
+            c = (Closure) tmp;
+        else return null;
+
+        Scope ns = new Scope(c.s);
+        ArrayList<Symbol> syms = c.fun.argList;
+        for (int i = 0; i < e.size(); i++) {
+            ns.putValue(syms.get(i).nameS, e.get(i).interp(s));
+        }
+        return c.fun.execute.interp(ns);
     }
 }
 

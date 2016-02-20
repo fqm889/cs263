@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.Binding;
 import orz.Scope;
 import orz.Type.Value;
 
@@ -18,7 +19,7 @@ public class Assign extends Expr {
 
     public Value interp(Scope s) {
         Value v = e.interp(s);
-
-        return null;
+        Binding.assign(this.s, v, s);
+        return v;
     }
 }

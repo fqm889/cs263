@@ -11,14 +11,36 @@ import java.util.ArrayList;
 public class LOOP extends Expr {
     public ArrayList<Expr> locals;
     public Expr e;
-    public ArrayList<Expr> recur;
+    public ArrayList<Symbol> syms;
+    public ArrayList<RECUR> rec;
 
-    public LOOP(int row, int col, ArrayList<Expr> l, Expr e, ArrayList<Expr> rec) {
+    public LOOP(int row, int col, ArrayList<Expr> l, Expr e) {
         super(row, col);
         type = "LOOP";
         locals = l;
         this.e = e;
-        recur = rec;
+        int len = l.size()/2;
+        syms = new ArrayList<Symbol>(len);
+        for (int i = 0; i < len; i++) {
+            syms.set(i, (Symbol)locals.get(2*i));
+        }
+        findRec(e, rec);
+        for (RECUR r: rec) {
+            r.entrance = this;
+        }
+    }
+
+    public void findRec(Expr expr, ArrayList<RECUR> recs) {
+        if (expr instanceof RECUR) {
+            recs.add((RECUR) expr);
+        }
+        else if (expr instanceof LET) {
+            findRec(((LET) expr).e, recs);
+        }
+        else if (expr instanceof IF) {
+            findRec(((IF) expr).F, recs);
+            findRec(((IF) expr).T, recs);
+        }
     }
 
     @Override
@@ -28,6 +50,12 @@ public class LOOP extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        Scope ns = new Scope(s);
+        for (int i = 0; i < locals.size(); i+=2) {
+            Symbol sym = (Symbol)(locals.get(i));
+            Value val = locals.get(i+1).interp(ns);
+            ns.putValue(sym.nameS, val);
+        }
+        return e.interp(ns);
     }
 }

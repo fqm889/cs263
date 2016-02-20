@@ -1,6 +1,7 @@
 package orz.AST;
 
 import orz.Scope;
+import orz.Type.Closure;
 import orz.Type.Value;
 
 import java.util.ArrayList;
@@ -21,6 +22,6 @@ public class Function extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        return new Closure(this, s);
     }
 }

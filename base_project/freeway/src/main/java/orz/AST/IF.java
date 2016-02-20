@@ -1,6 +1,7 @@
 package orz.AST;
 
 import orz.Scope;
+import orz.Type.BoolValue;
 import orz.Type.Value;
 
 /**
@@ -21,6 +22,12 @@ public class IF extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        Value v = pred.interp(s);
+        if (((BoolValue)v).value) {
+            return T.interp(s);
+        }
+        else {
+            return F.interp(s);
+        }
     }
 }

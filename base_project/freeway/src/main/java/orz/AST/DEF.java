@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.Binding;
 import orz.Scope;
 import orz.Type.Value;
 
@@ -8,9 +9,9 @@ import orz.Type.Value;
  */
 public class DEF extends Expr {
     public Symbol sym;
-    public Value val;
+    public Expr val;
 
-    public DEF(int row, int col, Symbol s, Value v) {
+    public DEF(int row, int col, Symbol s, Expr v) {
         super(row, col);
         type = "DEF";
         sym = s;
@@ -24,6 +25,8 @@ public class DEF extends Expr {
 
     @Override
     public Value interp(Scope s) {
-        return null;
+        Value v = val.interp(s);
+        Binding.define(sym, v, s);
+        return v;
     }
 }

@@ -22,7 +22,7 @@ public class CALL extends Expr {
 
     @Override
     public String toString() {
-        return "CALL"+fn.toString();
+        return "CALL"+fn.toString()+e.toString();
     }
 
     @Override

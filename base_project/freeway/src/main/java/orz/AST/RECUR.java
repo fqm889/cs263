@@ -32,4 +32,10 @@ public class RECUR extends Expr {
         }
         return entrance.e.interp(ns);
     }
+
+    @Override
+    public String toString() {
+        return "RECUR"+e.toString();
+    }
+
 }

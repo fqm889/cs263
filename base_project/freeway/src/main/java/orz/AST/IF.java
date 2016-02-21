@@ -30,4 +30,9 @@ public class IF extends Expr {
             return F.interp(s);
         }
     }
+
+    @Override
+    public String toString(){
+        return "IF"+pred.toString()+T.toString()+F.toString();
+    }
 }

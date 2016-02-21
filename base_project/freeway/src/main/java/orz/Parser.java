@@ -30,7 +30,7 @@ public class Parser {
                     cur="";
                     curline=-1;
                 }
-                else if (c=='['||c==']'||c=='('||c==')'){
+                else if (c!='_'&&!(c>='0'&&c<='9')&&!(c>='a'&&c<='z')&&!(c>='A'&&c<='Z')){
                     if (!cur.equals(""))
                         list.add(new Token(cur,curline,curcol));
                     cur="";
@@ -66,6 +66,8 @@ public class Parser {
     static Expr getExpr(Iterator ite){
         Token tok = (Token) ite.next();
         String str = tok.sym;
+        if (str == null)
+            return null;
         int row = tok.row;
         int col = tok.col;
         if (str.equals("]")||str.equals(")"))
@@ -105,44 +107,51 @@ public class Parser {
                 Token tmptok = (Token) ite.next();
                 Symbol sym = new Symbol(tmptok.row,tmptok.col,tmptok.sym);
                 Expr x = getExpr(ite);
-                str = (String) ite.next();
-                return new DEF(sym,(Value)x);
+                tok = (Token) ite.next();
+                return new DEF(row,col,sym,x);
             }
             else if (str.equals("defn")){
-                Symbol sym = new Symbol((String) ite.next());
+                tok = (Token) ite.next();
+                Symbol sym = new Symbol(tok.row,tok.col,tok.sym);
                 ArrayList<Symbol> args = new ArrayList<Symbol>();
-                str = (String) ite.next();
+                tok = (Token) ite.next();
+                str = tok.sym;
                 if (str.equals("[")){
-                    str = (String) ite.next();
+                    tok = (Token) ite.next();
+                    str = tok.sym;
                     while (!str.equals("]")){
-                        args.add(new Symbol(str));
+                        args.add(new Symbol(tok.row,tok.col,str));
                     }
                 }
                 Expr e = getExpr(ite);
-                str = (String) ite.next();
-                return new DEFN(sym,args,e);
+                tok = (Token) ite.next();
+                return new DEFN(row,col,sym,args,e);
             }
             else if (str.equals("if")){
                 Expr e = getExpr(ite);
                 Expr t = getExpr(ite);
                 Expr f = getExpr(ite);
                 if (f!=null)
-                    str=(String) ite.next();
-                return new IF(e,t,f);
+                    tok=(Token) ite.next();
+                return new IF(row,col,e,t,f);
             }
             else if (str.equals("loop")){
-                str = (String) ite.next();
-                if (str.equals("[")){
+                tok = (Token) ite.next();
+                str = tok.sym;
+                if (!str.equals("[")){
                     System.out.println("Error!");
                 }
                 ArrayList<Expr> l = new ArrayList<Expr>();
                 Expr tmp = getExpr(ite);
                 while (tmp != null){
                     l.add(tmp);
+                    //System.out.println(tmp.toString());
                     tmp = getExpr(ite);
                 }
+                //System.out.println(l.size());
                 Expr e = getExpr(ite);
-                str = (String) ite.next();
+                tok = (Token) ite.next();
+                /*str = (String) ite.next();
                 if (!str.equals("(")){
                     System.out.println("Error!");
                 }
@@ -156,12 +165,13 @@ public class Parser {
                     rec.add(tmp);
                     tmp = getExpr(ite);
                 }
-                str = (String) ite.next();
-                return new LOOP(l,e,rec);
+                str = (String) ite.next();*/
+                return new LOOP(row,col,l,e);
             }
             else if (str.equals("let")){
-                str = (String) ite.next();
-                if (str.equals("[")){
+                tok = (Token) ite.next();
+                str = tok.sym;
+                if (!str.equals("[")){
                     System.out.println("Error!");
                 }
                 ArrayList<Expr> l = new ArrayList<Expr>();
@@ -171,11 +181,12 @@ public class Parser {
                     tmp = getExpr(ite);
                 }
                 Expr e = getExpr(ite);
-                str = (String) ite.next();
-                return new LET(l,e);
+                tok = (Token) ite.next();
+                return new LET(row,col,l,e);
             }
             else if (str.equals("fn")){
-                str = (String) ite.next();
+                tok = (Token) ite.next();
+                str = tok.sym;
                 if (!str.equals("[")){
                     System.out.println("Error!");
                 }
@@ -186,33 +197,45 @@ public class Parser {
                     tmp = getExpr(ite);
                 }
                 Expr e = getExpr(ite);
-                str = (String) ite.next();
-                return new Function(args,e);
+                tok = (Token) ite.next();
+                return new Function(row,col,args,e);
+            }
+            else if (str.equals("recur")){
+                ArrayList<Expr> l = new ArrayList<Expr>();
+                Expr tmp = getExpr(ite);
+                while (tmp != null){
+                    l.add(tmp);
+                    tmp =getExpr(ite);
+                }
+                return new RECUR(row,col,l);
             }
             else {
-                Symbol fn = new Symbol(str);
+                Symbol fn = new Symbol(tok.row,tok.col,str);
                 ArrayList<Expr> e = new ArrayList<Expr>();
                 Expr tmp = getExpr(ite);
                 while (tmp != null){
                     e.add(tmp);
                     tmp = getExpr(ite);
                 }
-                return new CALL(fn,e);
+                return new CALL(row,col,fn,e);
             }
         }
         else {
-            return new Symbol(str);
+            return new Symbol(row,col,str);
         }
     }
 
     public static Expr ReadFile(String filename){
         File file = new File(filename);
+        if (file == null){
+            System.out.println("Fail to open file!");
+        }
         InputStream input = null;
         try{
             input = new FileInputStream(file);
         }
-        catch (IOException e){
-            System.out.println("Error!");
+        catch (IOException e) {
+            System.out.println(e.getMessage());
         }
         List wordlist = GetWordList(input);
         Iterator ite = wordlist.iterator();
@@ -232,7 +255,10 @@ public class Parser {
         return program;
     }
 
-
+    public  static  void main(String[] args){
+        String filename="/Users/chenjiyu/Desktop/cs263/gae/cs263project/base_project/freeway/src/main/java/orz/test.clj";
+        System.out.println(Parser.ReadFile(filename).toString());
+    }
 }
 
 class Token{
@@ -241,6 +267,7 @@ class Token{
     public int col;
 
     public Token(String s, int r, int c){
+        this.sym =s;
         this.row=r;
         this.col=c;
     }

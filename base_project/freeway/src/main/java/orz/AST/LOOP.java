@@ -20,10 +20,14 @@ public class LOOP extends Expr {
         locals = l;
         this.e = e;
         int len = l.size()/2;
-        syms = new ArrayList<Symbol>(len);
+        //System.out.println(len);
+        //System.out.println(locals.size());
+        syms = new ArrayList<Symbol>();
+        //System.out.println(syms.size());
         for (int i = 0; i < len; i++) {
-            syms.set(i, (Symbol)locals.get(2*i));
+            syms.add(i, (Symbol)(locals.get(2*i)));
         }
+        rec = new ArrayList<RECUR>();
         findRec(e, rec);
         for (RECUR r: rec) {
             r.entrance = this;
@@ -31,6 +35,8 @@ public class LOOP extends Expr {
     }
 
     public void findRec(Expr expr, ArrayList<RECUR> recs) {
+        if (expr == null)
+            return;
         if (expr instanceof RECUR) {
             recs.add((RECUR) expr);
         }
@@ -45,7 +51,7 @@ public class LOOP extends Expr {
 
     @Override
     public String toString() {
-        return "LOOP";
+        return "LOOP"+locals.toString()+e.toString();
     }
 
     @Override

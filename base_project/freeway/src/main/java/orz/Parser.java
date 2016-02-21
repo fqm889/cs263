@@ -121,6 +121,8 @@ public class Parser {
                     str = tok.sym;
                     while (!str.equals("]")){
                         args.add(new Symbol(tok.row,tok.col,str));
+                        tok = (Token) ite.next();
+                        str = tok.sym;
                     }
                 }
                 Expr e = getExpr(ite);
@@ -256,7 +258,7 @@ public class Parser {
     }
 
     public  static  void main(String[] args){
-        String filename="/Users/sicongfeng/Documents/Code/GAE/cs263/gae/cs263/base_project/freeway/src/main/java/orz/test.clj";
+        String filename="/Users/chenjiyu/Desktop/cs263/gae/cs263project/base_project/freeway/src/main/java/orz/test.clj";
         Expr prog = Parser.ReadFile(filename);
         while (prog!=null) {
             System.out.println(prog.toString());

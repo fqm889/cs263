@@ -2,6 +2,7 @@ package orz.AST;
 
 import orz.Scope;
 import orz.Type.Closure;
+import orz.Type.Primitive.PrimitiveFunction;
 import orz.Type.Value;
 
 import java.util.ArrayList;
@@ -28,17 +29,24 @@ public class CALL extends Expr {
     @Override
     public Value interp(Scope s) {
         Value tmp = fn.interp(s);
-        Closure c;
-        if (tmp instanceof Closure)
-            c = (Closure) tmp;
-        else return null;
-
-        Scope ns = new Scope(c.s);
-        ArrayList<Symbol> syms = c.fun.argList;
-        for (int i = 0; i < e.size(); i++) {
-            ns.putValue(syms.get(i).nameS, e.get(i).interp(s));
+        if (tmp instanceof Closure) {
+            Closure c = (Closure) tmp;
+            Scope ns = new Scope(c.s);
+            ArrayList<Symbol> syms = c.fun.argList;
+            for (int i = 0; i < e.size(); i++) {
+                ns.putValue(syms.get(i).nameS, e.get(i).interp(s));
+            }
+            return c.fun.execute.interp(ns);
         }
-        return c.fun.execute.interp(ns);
+        else if (tmp instanceof PrimitiveFunction) {
+            PrimitiveFunction f = (PrimitiveFunction) tmp;
+            ArrayList<Value> vs = new ArrayList<Value>();
+            for (int i = 0; i < e.size(); i++) {
+                vs.add(e.get(i).interp(s));
+            }
+            return f.apply(vs);
+        }
+        else return null;
     }
 }
 

@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e54e94d-f63d-4c5e-a350-b65f0f32260b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/RECUR.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/orz/Binding.java" />
+    <list default="true" id="2e54e94d-f63d-4c5e-a350-b65f0f32260b" name="Default" comment="Commit">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/Assign.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/Assign.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/Bool.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/Bool.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/CALL.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/CALL.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/Char.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/Char.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/DEF.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/DEF.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/DEFN.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/DEFN.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/Function.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/Function.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/IF.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/IF.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/Int.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/Int.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/LET.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/LET.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/LOOP.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/LOOP.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/ListArray.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/ListArray.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/Real.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/Real.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/Str.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/Str.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/AST/Symbol.java" afterPath="$PROJECT_DIR$/src/main/java/orz/AST/Symbol.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/orz/Constants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/Intepreter.java" afterPath="$PROJECT_DIR$/src/main/java/orz/Intepreter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/Parser.java" afterPath="$PROJECT_DIR$/src/main/java/orz/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/orz/Scope.java" afterPath="$PROJECT_DIR$/src/main/java/orz/Scope.java" />
     </list>
     <ignored path="freeway.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,19 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Closure.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/orz/Type/Closure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-              <folding>
-                <element signature="e#315#316#0" expanded="true" />
-                <element signature="e#352#353#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Expr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/Expr.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -73,10 +42,8 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/RECUR.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/Symbol.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#435#436#0" expanded="true" />
@@ -95,19 +62,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/orz/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.048485">
-              <caret line="245" column="5" selection-start-line="245" selection-start-column="5" selection-end-line="245" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="258" column="117" selection-start-line="258" selection-start-column="117" selection-end-line="258" selection-end-column="117" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3574#3582#0" expanded="true" />
-                <element signature="e#4515#4521#0" expanded="true" />
-                <element signature="e#5087#5093#0" expanded="true" />
-                <element signature="e#5600#5606#0" expanded="true" />
-                <element signature="e#6155#6163#0" expanded="true" />
-                <element signature="e#6601#6607#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,10 +78,21 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/CALL.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1141#1148#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Intepreter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/orz/Intepreter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5625">
+              <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -143,10 +115,8 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/orz/Scope.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -167,7 +137,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/DEF.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -222,9 +192,7 @@
         <option value="$PROJECT_DIR$/src/main/java/orz/AST/Expr.java" />
         <option value="$PROJECT_DIR$/src/main/java/orz/Type/Primitive/ADD.java" />
         <option value="$PROJECT_DIR$/src/main/java/orz/Type/CharT.java" />
-        <option value="$PROJECT_DIR$/src/main/java/orz/Parser.java" />
         <option value="$PROJECT_DIR$/src/main/java/orz/Binding.java" />
-        <option value="$PROJECT_DIR$/src/main/java/orz/Intepreter.java" />
         <option value="$PROJECT_DIR$/src/main/java/orz/AST/Bool.java" />
         <option value="$PROJECT_DIR$/src/main/java/orz/AST/Int.java" />
         <option value="$PROJECT_DIR$/src/main/java/orz/AST/Real.java" />
@@ -244,6 +212,8 @@
         <option value="$PROJECT_DIR$/src/main/java/orz/AST/Function.java" />
         <option value="$PROJECT_DIR$/src/main/java/orz/AST/DEFN.java" />
         <option value="$PROJECT_DIR$/src/main/java/orz/AST/CALL.java" />
+        <option value="$PROJECT_DIR$/src/main/java/orz/Parser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/orz/Intepreter.java" />
       </list>
     </option>
   </component>
@@ -288,8 +258,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -392,6 +360,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Parser.java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freeway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freeway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Type" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -460,9 +458,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freeway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="freeway" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -502,7 +524,13 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/orz/AST/CALL.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/orz/AST/IF.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/orz/AST/LOOP.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/orz/AST/RECUR.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/orz/Intepreter.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/orz/Parser.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/orz/Scope.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -510,6 +538,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/main/java/orz/test.clj</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -598,7 +627,27 @@
       </FILE-GROUP>
     </UpdatedFiles>
   </component>
-  <component name="RunManager" selected="Google AppEngine Dev Server.AppEngine Dev 1.9.30">
+  <component name="RunManager" selected="Application.Intepreter">
+    <configuration default="false" name="Intepreter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="orz.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="orz.Intepreter" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="freeway" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -1096,9 +1145,15 @@
         </option>
       </method>
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Google AppEngine Dev Server.AppEngine Dev 1.9.30" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Intepreter" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.Intepreter" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SbtLocalSettings">
     <option name="externalProjectsViewState">
@@ -1122,7 +1177,9 @@
       <workItem from="1454711196641" duration="2797000" />
       <workItem from="1455905106457" duration="8527000" />
       <workItem from="1455924504216" duration="320000" />
-      <workItem from="1455924952509" duration="14175000" />
+      <workItem from="1455924952509" duration="14273000" />
+      <workItem from="1456006365977" duration="1094000" />
+      <workItem from="1456032906882" duration="1002000" />
     </task>
     <task id="LOCAL-00001" summary="project">
       <created>1454046316150</created>
@@ -1208,11 +1265,17 @@
       <option name="project" value="LOCAL" />
       <updated>1455930770768</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Commit">
+      <created>1455999381989</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1455999381989</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26892000" />
+    <option name="totallyTimeSpent" value="29086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1227,7 +1290,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1273,31 +1336,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/proposal.md">
-      <provider editor-type-id="MultiMarkdownFxPreviewEditor">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;MultiMarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor vertical-scroll-proportion="0.6025974">
-            <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/orz/Type/IntT.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1030303">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1305,7 +1347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14424242">
           <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1313,7 +1354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1030303">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,9 +1361,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22666667">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1331,7 +1368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1030303">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1339,7 +1375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1030303">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1355,7 +1390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1030303">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1371,7 +1405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1030303">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1379,11 +1412,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.72121215">
           <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#204#205#0" expanded="false" />
-            <element signature="e#233#234#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1391,11 +1419,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3709091">
           <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#204#205#0" expanded="false" />
-            <element signature="e#233#234#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1403,10 +1426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.061818182">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#184#185#0" expanded="false" />
-            <element signature="e#213#214#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1414,11 +1433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43272728">
           <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#183#184#0" expanded="false" />
-            <element signature="e#213#214#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1426,11 +1440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45333335">
           <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#186#187#0" expanded="false" />
-            <element signature="e#216#217#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1445,11 +1454,6 @@
           <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
           <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
           <caret line="29" column="68" selection-start-line="29" selection-start-column="68" selection-end-line="29" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#184#185#0" expanded="false" />
-            <element signature="e#213#214#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1464,11 +1468,6 @@
           <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
           <caret line="28" column="61" selection-start-line="28" selection-start-column="61" selection-end-line="28" selection-end-column="61" />
           <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#186#187#0" expanded="false" />
-            <element signature="e#216#217#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1476,10 +1475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.041212123">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding>
-            <element signature="e#184#185#0" expanded="false" />
-            <element signature="e#214#215#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1487,11 +1482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43272728">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#186#187#0" expanded="false" />
-            <element signature="e#217#218#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1499,15 +1489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/orz/Type/Primitive/PrimitiveFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.061818182">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1515,7 +1496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1030303">
           <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1523,7 +1503,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6181818">
           <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1531,10 +1510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.123636365">
           <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="5" />
-          <folding>
-            <element signature="e#128#129#0" expanded="false" />
-            <element signature="e#157#158#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1542,10 +1517,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1030303">
           <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-          <folding>
-            <element signature="e#128#129#0" expanded="false" />
-            <element signature="e#157#158#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1553,9 +1524,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43272728">
           <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1605,19 +1573,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/orz/Type/Primitive/ADD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14424242">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/Assign.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43272728">
           <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1635,18 +1594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49454546">
           <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/orz/Intepreter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3709091">
-          <caret line="19" column="26" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <element signature="e#185#186#0" expanded="false" />
-            <element signature="e#221#222#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1654,7 +1601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3090909">
           <caret line="19" column="45" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1663,7 +1609,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1692,42 +1638,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding>
-            <element signature="e#315#316#0" expanded="true" />
-            <element signature="e#352#353#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/RECUR.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/orz/Scope.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="60" selection-start-line="12" selection-start-column="60" selection-end-line="12" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/Symbol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#435#436#0" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-          </folding>
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1735,14 +1662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="14" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/DEF.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1769,29 +1688,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/CALL.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/Symbol.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#435#436#0" expanded="true" />
+            <element signature="e#478#479#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/DEF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/orz/test.clj">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/orz/Type/Primitive/PrimitiveFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2060606">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/orz/Parser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/orz/Type/Primitive/ADD.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.048485">
-          <caret line="245" column="5" selection-start-line="245" selection-start-column="5" selection-end-line="245" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.14424242">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/orz/AST/CALL.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3574#3582#0" expanded="true" />
-            <element signature="e#4515#4521#0" expanded="true" />
-            <element signature="e#5087#5093#0" expanded="true" />
-            <element signature="e#5600#5606#0" expanded="true" />
-            <element signature="e#6155#6163#0" expanded="true" />
-            <element signature="e#6601#6607#0" expanded="true" />
+            <element signature="e#1141#1148#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/orz/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="258" column="117" selection-start-line="258" selection-start-column="117" selection-end-line="258" selection-end-column="117" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/orz/Intepreter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5625">
+          <caret line="21" column="39" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>

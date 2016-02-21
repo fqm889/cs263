@@ -23,6 +23,7 @@ public class IF extends Expr {
     @Override
     public Value interp(Scope s) {
         Value v = pred.interp(s);
+        //System.out.println(v.toString());
         if (((BoolValue)v).value) {
             return T.interp(s);
         }

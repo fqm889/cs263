@@ -30,7 +30,7 @@ public class Parser {
                     cur="";
                     curline=-1;
                 }
-                else if (c!='_'&&!(c>='0'&&c<='9')&&!(c>='a'&&c<='z')&&!(c>='A'&&c<='Z')){
+                else if (c!='_'&&!(c>='0'&&c<='9')&&!(c>='a'&&c<='z')&&!(c>='A'&&c<='Z')&&c!='+'&&c!='-'){
                     if (!cur.equals(""))
                         list.add(new Token(cur,curline,curcol));
                     cur="";
@@ -257,7 +257,11 @@ public class Parser {
 
     public  static  void main(String[] args){
         String filename="/Users/chenjiyu/Desktop/cs263/gae/cs263project/base_project/freeway/src/main/java/orz/test.clj";
-        System.out.println(Parser.ReadFile(filename).toString());
+        Expr prog = Parser.ReadFile(filename);
+        while (prog!=null) {
+            System.out.println(prog.toString());
+            prog=prog.getNext();
+        }
     }
 }
 

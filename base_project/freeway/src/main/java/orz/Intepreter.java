@@ -16,8 +16,9 @@ public class Intepreter {
     }
 
     public static void main(String[] args) {
-        Intepreter i = new Intepreter(args[0]);
-        i.interp(args[0]);
+        String filename="/Users/chenjiyu/Desktop/cs263/gae/cs263project/base_project/freeway/src/main/java/orz/test.clj";
+        Intepreter i = new Intepreter(filename);
+        i.interp(filename);
     }
 }
 

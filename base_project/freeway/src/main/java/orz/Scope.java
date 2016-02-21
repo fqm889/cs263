@@ -16,10 +16,12 @@ public class Scope {
     public Scope parent;
 
     public Scope() {
+        env = new LinkedHashMap<String,LinkedHashMap<String, Value>>();
         parent = null;
     }
 
     public Scope(Scope pa) {
+        env = new LinkedHashMap<String,LinkedHashMap<String, Value>>();
         parent = pa;
     }
 

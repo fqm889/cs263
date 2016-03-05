@@ -11,8 +11,16 @@ public class Intepreter {
     }
 
     public Value interp(String file) {
+        DebugHandler dh = new DebugHandler(0);
         Expr prog = Parser.ReadFile(file);
-        return prog.interp(Scope.initScope());
+        Value result;
+        Scope s = Scope.initScope();
+        result = prog.interp(s, dh);
+        while (prog.getNext() != null) {
+            prog=prog.getNext();
+            result = prog.interp(s, dh);
+        }
+        return result;
     }
 
     public static void main(String[] args) {

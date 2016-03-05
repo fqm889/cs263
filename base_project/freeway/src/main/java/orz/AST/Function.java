@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.Closure;
 import orz.Type.Value;
@@ -21,7 +22,12 @@ public class Function extends Expr {
     }
 
     @Override
-    public Value interp(Scope s) {
+    public Value interp(Scope s, DebugHandler dh) {
         return new Closure(this, s);
+    }
+
+    @Override
+    public String toString() {
+        return type + "[" + argList.toString() + "]" + "(" + execute.toString() + ")";
     }
 }

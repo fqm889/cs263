@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.Value;
 
@@ -25,13 +26,13 @@ public class LET extends Expr {
     }
 
     @Override
-    public Value interp(Scope s) {
+    public Value interp(Scope s, DebugHandler dh) {
         Scope ns = new Scope(s);
         for (int i = 0; i < locals.size(); i+=2) {
             Symbol sym = (Symbol)(locals.get(i));
-            Value val = locals.get(i+1).interp(ns);
+            Value val = locals.get(i+1).interp(ns, dh);
             ns.putValue(sym.nameS, val);
         }
-        return e.interp(ns);
+        return e.interp(ns, dh);
     }
 }

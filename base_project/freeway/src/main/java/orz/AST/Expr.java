@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.Value;
 
@@ -28,6 +29,6 @@ public abstract class Expr {
         return next;
     }
 
-    public abstract Value interp(Scope s);
+    public abstract Value interp(Scope s, DebugHandler dh);
 
 }

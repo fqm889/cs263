@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.Value;
 import orz.Type.VectorValue;
@@ -33,16 +34,16 @@ public class ListArray extends Expr {
         return arr.toString();
     }
 
-    public static ArrayList<Value> interpList(ArrayList<Expr> a, Scope s) {
+    public static ArrayList<Value> interpList(ArrayList<Expr> a, Scope s, DebugHandler dh) {
         ArrayList<Value> res = new ArrayList<Value>(a.size());
         for (int i = 0; i < a.size(); i++) {
-            res.set(i, a.get(i).interp(s));
+            res.set(i, a.get(i).interp(s, dh));
         }
         return res;
     }
 
     @Override
-    public Value interp(Scope s) {
-        return new VectorValue(interpList(arr, s));
+    public Value interp(Scope s, DebugHandler dh) {
+        return new VectorValue(interpList(arr, s, dh));
     }
 }

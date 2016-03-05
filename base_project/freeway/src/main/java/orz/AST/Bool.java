@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.BoolValue;
 import orz.Type.Value;
@@ -21,7 +22,8 @@ public class Bool extends Expr {
     }
 
     @Override
-    public Value interp(Scope s) {
+    public Value interp(Scope s, DebugHandler dh) {
+        dh.block();
         return new BoolValue(v);
     }
 }

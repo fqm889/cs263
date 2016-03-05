@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.StrValue;
 import orz.Type.Value;
@@ -21,7 +22,7 @@ public class Str extends Expr {
     }
 
     @Override
-    public Value interp(Scope s) {
+    public Value interp(Scope s, DebugHandler dh) {
         return new StrValue(this.s);
     }
 }

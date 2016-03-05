@@ -1,6 +1,7 @@
 package orz.AST;
 
 import orz.Binding;
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.Value;
 
@@ -24,8 +25,8 @@ public class DEF extends Expr {
     }
 
     @Override
-    public Value interp(Scope s) {
-        Value v = val.interp(s);
+    public Value interp(Scope s, DebugHandler dh) {
+        Value v = val.interp(s, dh);
         Binding.define(sym, v, s);
         return v;
     }

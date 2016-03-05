@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.BoolValue;
 import orz.Type.Value;
@@ -21,14 +22,14 @@ public class IF extends Expr {
     }
 
     @Override
-    public Value interp(Scope s) {
-        Value v = pred.interp(s);
+    public Value interp(Scope s, DebugHandler dh) {
+        Value v = pred.interp(s, dh);
         //System.out.println(v.toString());
         if (((BoolValue)v).value) {
-            return T.interp(s);
+            return T.interp(s, dh);
         }
         else {
-            return F.interp(s);
+            return F.interp(s, dh);
         }
     }
 

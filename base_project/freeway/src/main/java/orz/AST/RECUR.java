@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.Value;
 
@@ -24,13 +25,13 @@ public class RECUR extends Expr {
     }
 
     @Override
-    public Value interp(Scope s) {
+    public Value interp(Scope s, DebugHandler dh) {
         Scope ns = new Scope(s);
         ArrayList<Symbol> syms = entrance.syms;
         for (int i = 0; i < e.size(); i++) {
-            ns.putValue(syms.get(i).nameS, e.get(i).interp(s));
+            ns.putValue(syms.get(i).nameS, e.get(i).interp(s, dh));
         }
-        return entrance.e.interp(ns);
+        return entrance.e.interp(ns, dh);
     }
 
     @Override

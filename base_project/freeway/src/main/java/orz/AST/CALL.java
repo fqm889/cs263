@@ -1,5 +1,6 @@
 package orz.AST;
 
+import orz.DebugHandler;
 import orz.Scope;
 import orz.Type.Closure;
 import orz.Type.Primitive.PrimitiveFunction;
@@ -27,22 +28,22 @@ public class CALL extends Expr {
     }
 
     @Override
-    public Value interp(Scope s) {
-        Value tmp = fn.interp(s);
+    public Value interp(Scope s, DebugHandler dh) {
+        Value tmp = fn.interp(s, dh);
         if (tmp instanceof Closure) {
             Closure c = (Closure) tmp;
             Scope ns = new Scope(c.s);
             ArrayList<Symbol> syms = c.fun.argList;
             for (int i = 0; i < e.size(); i++) {
-                ns.putValue(syms.get(i).nameS, e.get(i).interp(s));
+                ns.putValue(syms.get(i).nameS, e.get(i).interp(s, dh));
             }
-            return c.fun.execute.interp(ns);
+            return c.fun.execute.interp(ns, dh);
         }
         else if (tmp instanceof PrimitiveFunction) {
             PrimitiveFunction f = (PrimitiveFunction) tmp;
             ArrayList<Value> vs = new ArrayList<Value>();
             for (int i = 0; i < e.size(); i++) {
-                vs.add(e.get(i).interp(s));
+                vs.add(e.get(i).interp(s, dh));
             }
             return f.apply(vs);
         }

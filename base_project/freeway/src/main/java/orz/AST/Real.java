@@ -23,6 +23,9 @@ public class Real extends Expr {
 
     @Override
     public Value interp(Scope s, DebugHandler dh) {
-        return new RealValue(d);
+        Value ret = new RealValue(d);
+        dh.update(s, ret);
+        dh.block();
+        return ret;
     }
 }

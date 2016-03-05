@@ -33,6 +33,8 @@ public class LET extends Expr {
             Value val = locals.get(i+1).interp(ns, dh);
             ns.putValue(sym.nameS, val);
         }
+        dh.update(ns, null);
+        dh.block();
         return e.interp(ns, dh);
     }
 }

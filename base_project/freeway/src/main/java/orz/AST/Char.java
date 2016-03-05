@@ -25,7 +25,9 @@ public class Char extends Expr {
 
     @Override
     public Value interp(Scope s, DebugHandler dh) {
+        Value ret = new CharValue(c);
+        dh.update(s, ret);
         dh.block();
-        return new CharValue(c);
+        return ret;
     }
 }

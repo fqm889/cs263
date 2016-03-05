@@ -23,7 +23,9 @@ public class Bool extends Expr {
 
     @Override
     public Value interp(Scope s, DebugHandler dh) {
+        Value ret = new BoolValue(v);
+        dh.update(s, ret);
         dh.block();
-        return new BoolValue(v);
+        return ret;
     }
 }

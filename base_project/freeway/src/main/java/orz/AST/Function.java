@@ -23,7 +23,10 @@ public class Function extends Expr {
 
     @Override
     public Value interp(Scope s, DebugHandler dh) {
-        return new Closure(this, s);
+        Value ret = new Closure(this, s);
+        dh.update(s, ret);
+        dh.block();
+        return ret;
     }
 
     @Override

@@ -32,6 +32,8 @@ public class DEFN extends Expr {
     public Value interp(Scope s, DebugHandler dh) {
         Value c = cls.interp(s, dh);
         Binding.define(sym, c, s);
+        dh.update(s, c);
+        dh.block();
         return c;
     }
 }

@@ -24,6 +24,8 @@ public class IF extends Expr {
     @Override
     public Value interp(Scope s, DebugHandler dh) {
         Value v = pred.interp(s, dh);
+        dh.update(s, v);
+        dh.block();
         //System.out.println(v.toString());
         if (((BoolValue)v).value) {
             return T.interp(s, dh);

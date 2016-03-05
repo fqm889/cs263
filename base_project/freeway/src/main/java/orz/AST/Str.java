@@ -23,6 +23,9 @@ public class Str extends Expr {
 
     @Override
     public Value interp(Scope s, DebugHandler dh) {
-        return new StrValue(this.s);
+        Value ret = new StrValue(this.s);
+        dh.update(s, ret);
+        dh.block();
+        return ret;
     }
 }

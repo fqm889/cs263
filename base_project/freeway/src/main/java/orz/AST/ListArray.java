@@ -44,6 +44,9 @@ public class ListArray extends Expr {
 
     @Override
     public Value interp(Scope s, DebugHandler dh) {
-        return new VectorValue(interpList(arr, s, dh));
+        Value ret = new VectorValue(interpList(arr, s, dh));
+        dh.update(s, ret);
+        dh.block();
+        return ret;
     }
 }

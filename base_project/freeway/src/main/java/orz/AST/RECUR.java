@@ -31,6 +31,8 @@ public class RECUR extends Expr {
         for (int i = 0; i < e.size(); i++) {
             ns.putValue(syms.get(i).nameS, e.get(i).interp(s, dh));
         }
+        dh.update(ns, null);
+        dh.block();
         return entrance.e.interp(ns, dh);
     }
 

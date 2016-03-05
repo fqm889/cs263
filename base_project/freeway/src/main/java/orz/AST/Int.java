@@ -23,6 +23,9 @@ public class Int extends Expr {
 
     @Override
     public Value interp(Scope s, DebugHandler dh) {
-        return new IntValue(v);
+        Value ret = new IntValue(v);
+        dh.update(s, ret);
+        dh.block();
+        return ret;
     }
 }

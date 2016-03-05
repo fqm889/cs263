@@ -23,7 +23,10 @@ public class Symbol extends Expr {
 
     @Override
     public Value interp(Scope s, DebugHandler dh) {
-        return s.lookupValue(nameS);
+        Value ret = s.lookupValue(nameS);
+        dh.update(s, ret);
+        dh.block();
+        return ret;
     }
 
     public boolean equals(Symbol s) {

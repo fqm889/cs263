@@ -1,5 +1,6 @@
 package orz;
 
+import orz.AST.Expr;
 import orz.Type.Value;
 
 /**
@@ -28,5 +29,12 @@ public class DebugHandler {
         System.out.println(scope.toString());
         if (result != null)
             System.out.println(result.toString());
+        System.out.println("Next?");
+        try{
+            System.in.read();
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }

@@ -50,7 +50,8 @@ public class CALL extends Expr {
             }
             Value ret = f.apply(vs);
             dh.update(s, ret);
-            return
+            dh.block();
+            return ret;
         }
         else return null;
     }

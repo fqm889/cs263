@@ -1,5 +1,5 @@
-(defn func [a] (- a 1))
+(defn func [x] (+ x 1))
 
-(loop [a -111] (if (> a 0) (+ a 10) (recur (+ a 1))))
+(loop [a -3] (if (> a 0) (+ a 10) (recur (func a))))
 
 

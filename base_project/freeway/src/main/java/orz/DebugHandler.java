@@ -8,6 +8,7 @@ import orz.Type.Value;
 public class DebugHandler {
     public int level;
     Scope scope;
+    Value result;
 
     DebugHandler(int l) {
         level = l;
@@ -15,10 +16,17 @@ public class DebugHandler {
     }
 
     public void update(Scope s, Value res) {
-
+        // updates scope and return value of each expression when interpreting
+        // will be shown on debug interface
+        scope = s;
+        result = res;
     }
 
     public void block() {
-
+        // communication with server and block until the next instruction comes
+        //
+        System.out.println(scope.toString());
+        if (result != null)
+            System.out.println(result.toString());
     }
 }

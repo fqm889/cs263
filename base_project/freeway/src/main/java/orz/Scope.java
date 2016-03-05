@@ -120,4 +120,9 @@ public class Scope {
 
         return init;
     }
+
+    @Override
+    public String toString() {
+        return env.toString();
+    }
 }

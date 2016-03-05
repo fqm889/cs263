@@ -11,7 +11,7 @@ public class Intepreter {
     }
 
     public Value interp(String file) {
-        DebugHandler dh = new DebugHandler(0);
+        DebugHandler dh = new DebugHandler(0); // new DebugHandler(0, new HTTPServer());
         Expr prog = Parser.ReadFile(file);
         Value result;
         Scope s = Scope.initScope();

@@ -12,7 +12,14 @@ public class Intepreter {
 
     public Value interp(String file) {
         Expr prog = Parser.ReadFile(file);
-        return prog.interp(Scope.initScope());
+        Value result;
+        Scope s = Scope.initScope();
+        result = prog.interp(s);
+        while (prog.getNext()!=null){
+            prog=prog.getNext();
+            result = prog.interp(s);
+        }
+        return result;
     }
 
     public static void main(String[] args) {

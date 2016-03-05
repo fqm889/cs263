@@ -19,6 +19,17 @@ public class DebugHandler {
     }
 
     public void block() {
-
+        if (scope !=null)
+            scope.print();
+        else {
+            System.out.println("null");
+        }
+        System.out.println("Next?");
+        try {
+            System.in.read();
+        }
+        catch (Exception e){
+            System.out.print(e.getMessage());
+        }
     }
 }

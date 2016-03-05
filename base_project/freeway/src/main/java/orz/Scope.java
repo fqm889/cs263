@@ -120,4 +120,8 @@ public class Scope {
 
         return init;
     }
+
+    public void print(){
+        System.out.println(env.toString());
+    }
 }

@@ -11,7 +11,7 @@ public class Binding {
     public static void define(Symbol s, Value v, Scope env) {
         String name = s.nameS;
         Value vtmp = env.lookupLocalValue(name);
-        if (v==null) {
+        if (vtmp==null) {
             env.putValue(name, v);
         }
     }

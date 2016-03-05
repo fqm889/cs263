@@ -31,6 +31,7 @@ public class CALL extends Expr {
     public Value interp(Scope s, DebugHandler dh) {
         Value tmp = fn.interp(s, dh);
         if (tmp instanceof Closure) {
+            System.out.println("Inside of CALL.interp "+tmp.toString());
             Closure c = (Closure) tmp;
             Scope ns = new Scope(c.s);
             ArrayList<Symbol> syms = c.fun.argList;

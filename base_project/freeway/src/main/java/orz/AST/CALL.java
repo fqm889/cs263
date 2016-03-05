@@ -37,7 +37,10 @@ public class CALL extends Expr {
             for (int i = 0; i < e.size(); i++) {
                 ns.putValue(syms.get(i).nameS, e.get(i).interp(s, dh));
             }
-            return c.fun.execute.interp(ns, dh);
+            Value ret = c.fun.execute.interp(ns, dh);
+            dh.update(s, ret);
+            dh.block();
+            return ret;
         }
         else if (tmp instanceof PrimitiveFunction) {
             PrimitiveFunction f = (PrimitiveFunction) tmp;
@@ -45,7 +48,9 @@ public class CALL extends Expr {
             for (int i = 0; i < e.size(); i++) {
                 vs.add(e.get(i).interp(s, dh));
             }
-            return f.apply(vs);
+            Value ret = f.apply(vs);
+            dh.update(s, ret);
+            return
         }
         else return null;
     }

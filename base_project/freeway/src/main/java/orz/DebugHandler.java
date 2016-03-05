@@ -14,7 +14,7 @@ public class DebugHandler {
 
     }
 
-    public void udpate(Scope s, Value res) {
+    public void update(Scope s, Value res) {
 
     }
 

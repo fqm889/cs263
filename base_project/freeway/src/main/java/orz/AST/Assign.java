@@ -21,7 +21,7 @@ public class Assign extends Expr {
     public Value interp(Scope s, DebugHandler dh) {
         Value v = e.interp(s, dh);
         Binding.assign(this.s, v, s);
-        dh.udpate(s, v);
+        dh.update(s, v);
         dh.block();
         return v;
     }

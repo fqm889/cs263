@@ -24,7 +24,7 @@ public class Intepreter {
     }
 
     public static void main(String[] args) {
-        String filename="/Users/sicongfeng/Documents/Code/GAE/cs263/gae/cs263/base_project/freeway/src/main/java/orz/test.clj";
+        String filename="/Users/chenjiyu/Desktop/cs263/test/cs263/base_project/freeway/src/main/java/orz/test.clj";
         Intepreter i = new Intepreter(filename);
         Value v = i.interp(filename);
         System.out.println(v.toString());

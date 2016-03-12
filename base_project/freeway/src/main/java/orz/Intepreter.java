@@ -18,6 +18,7 @@ public class Intepreter {
         result = prog.interp(s, dh);
         while (prog.getNext() != null) {
             prog=prog.getNext();
+            //System.out.println(prog.toString());
             result = prog.interp(s, dh);
         }
         return result;

@@ -30,6 +30,23 @@ public class Parser {
                     cur="";
                     curline=-1;
                 }
+                else if (c=='='||c=='<'||c=='>'){
+                    if (cur.equals("=")||cur.equals("<")||cur.equals(">")){
+                        cur+=c;
+                        list.add(new Token(cur,curline,curcol));
+                        cur="";
+                        curline=-1;
+                    }
+                    else {
+                        if (!cur.equals("")) {
+                            list.add(new Token(cur, curline, curcol));
+                            cur = "";
+                        }
+                        cur+=c;
+                        curline=line;
+                        curcol=col;
+                    }
+                }
                 else if (c!='_'&&!(c>='0'&&c<='9')&&!(c>='a'&&c<='z')&&!(c>='A'&&c<='Z')&&c!='+'&&c!='-'){
                     if (!cur.equals(""))
                         list.add(new Token(cur,curline,curcol));
@@ -38,6 +55,7 @@ public class Parser {
                     list.add(new Token(cur,line,col));
                     cur="";
                     curline=-1;
+
                 }
                 else {
                     if (curline==-1){

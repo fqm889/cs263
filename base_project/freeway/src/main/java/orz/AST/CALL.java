@@ -40,7 +40,7 @@ public class CALL extends Expr {
             }
             Value ret = c.fun.execute.interp(ns, dh);
             dh.update(s, ret);
-            dh.block();
+            dh.block(this.row,this.col);
             return ret;
         }
         else if (tmp instanceof PrimitiveFunction) {
@@ -51,7 +51,7 @@ public class CALL extends Expr {
             }
             Value ret = f.apply(vs);
             dh.update(s, ret);
-            dh.block();
+            dh.block(this.row,this.col);
             return ret;
         }
         else return null;

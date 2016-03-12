@@ -29,7 +29,7 @@ public class DEF extends Expr {
         Value v = val.interp(s, dh);
         Binding.define(sym, v, s);
         dh.update(s, v);
-        dh.block();
+        dh.block(this.row,this.col);
         return v;
     }
 }

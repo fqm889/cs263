@@ -22,7 +22,7 @@ public class Assign extends Expr {
         Value v = e.interp(s, dh);
         Binding.assign(this.s, v, s);
         dh.update(s, v);
-        dh.block();
+        dh.block(this.row,this.col);
         return v;
     }
 }

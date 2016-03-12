@@ -32,7 +32,7 @@ public class RECUR extends Expr {
             ns.putValue(syms.get(i).nameS, e.get(i).interp(s, dh));
         }
         dh.update(ns, null);
-        dh.block();
+        dh.block(this.row,this.col);
         return entrance.e.interp(ns, dh);
     }
 

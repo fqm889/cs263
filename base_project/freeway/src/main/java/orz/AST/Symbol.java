@@ -25,7 +25,7 @@ public class Symbol extends Expr {
     public Value interp(Scope s, DebugHandler dh) {
         Value ret = s.lookupValue(nameS);
         dh.update(s, ret);
-        dh.block();
+        dh.block(this.row,this.col);
         return ret;
     }
 

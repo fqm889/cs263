@@ -64,7 +64,7 @@ public class LOOP extends Expr {
             ns.putValue(sym.nameS, val);
         }
         dh.update(ns, null);
-        dh.block();
+        dh.block(this.row,this.col);
         return e.interp(ns, dh);
     }
 }

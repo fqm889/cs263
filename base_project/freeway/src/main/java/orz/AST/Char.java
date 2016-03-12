@@ -27,7 +27,7 @@ public class Char extends Expr {
     public Value interp(Scope s, DebugHandler dh) {
         Value ret = new CharValue(c);
         dh.update(s, ret);
-        dh.block();
+        dh.block(this.row,this.col);
         return ret;
     }
 }

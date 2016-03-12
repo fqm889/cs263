@@ -25,7 +25,7 @@ public class Real extends Expr {
     public Value interp(Scope s, DebugHandler dh) {
         Value ret = new RealValue(d);
         dh.update(s, ret);
-        dh.block();
+        dh.block(this.row,this.col);
         return ret;
     }
 }

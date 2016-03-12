@@ -25,7 +25,7 @@ public class Str extends Expr {
     public Value interp(Scope s, DebugHandler dh) {
         Value ret = new StrValue(this.s);
         dh.update(s, ret);
-        dh.block();
+        dh.block(this.row,this.col);
         return ret;
     }
 }

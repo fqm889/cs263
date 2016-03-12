@@ -23,9 +23,10 @@ public class DebugHandler {
         result = res;
     }
 
-    public void block() {
+    public void block(int line,int col) {
         // communication with server and block until the next instruction comes
         //
+        System.out.printf("Line: %d Col: %d\n", line,col);
         System.out.println(scope.toString());
         if (result != null)
             System.out.println(result.toString());

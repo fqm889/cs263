@@ -13,10 +13,12 @@ public class DebugHandler {
     public int level;
     Scope scope;
     Value result;
+    Server server;
+    boolean next = false;
 
-    DebugHandler(int l) {
+    DebugHandler(int l, Server server) {
         level = l;
-
+        this.server = server;
     }
 
     public void update(Scope s, Value res) {
@@ -55,11 +57,12 @@ public class DebugHandler {
             System.out.println(e.toString());
         }
         System.out.println("Next?");
-        try{
-            System.in.read();
+        while (!next) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+            }
         }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        next = false;
     }
 }

@@ -16,12 +16,17 @@ import org.apache.commons.httpclient.methods.PostMethod;
 
 public class Intepreter {
     String file;
+    Server server;
     public Intepreter(String filename) {
         this.file = filename;
+        server = new Server();
     }
 
     public Value interp(String file) {
-        DebugHandler dh = new DebugHandler(0); // new DebugHandler(0, new HTTPServer());
+        DebugHandler dh = new DebugHandler(0,server); // new DebugHandler(0, new HTTPServer());
+        server.debugHandler = dh;
+        Thread t = new Thread(server);
+        t.start();
         Expr prog = Parser.ReadFile(file);
         Value result;
         Scope s = Scope.initScope();
@@ -35,7 +40,7 @@ public class Intepreter {
     }
 
     public static void main(String[] args) {
-        String filename="/Users/chenjiyu/Desktop/cs263/test/cs263/base_project/freeway/src/main/java/orz/test.clj";
+        String filename="/Users/sicongfeng/Documents/Code/GAE/cs263/gae/cs263/base_project/freeway/src/main/java/orz/test.clj";
         String exeprogram="";
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(
@@ -56,6 +61,7 @@ public class Intepreter {
         HttpClient httpClient = new HttpClient();
         PostMethod postMethod = new PostMethod(url);
         postMethod.addParameter("program", exeprogram);
+        postMethod.addParameter("port", "9000");
         try {
             httpClient.executeMethod(postMethod);
         } catch (HttpException e) {

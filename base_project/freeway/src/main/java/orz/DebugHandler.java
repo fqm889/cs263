@@ -2,6 +2,9 @@ package orz;
 
 import orz.AST.Expr;
 import orz.Type.Value;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 
 /**
  * Created by sicongfeng on 16/3/4.
@@ -26,10 +29,30 @@ public class DebugHandler {
     public void block(int line,int col) {
         // communication with server and block until the next instruction comes
         //
-        System.out.printf("Line: %d Col: %d\n", line,col);
-        System.out.println(scope.toString());
-        if (result != null)
-            System.out.println(result.toString());
+        try{
+
+            String landc=String.format("line=%d&col=%d&heap=",line,col);
+            String scopstr=scope.toString();
+            System.out.printf("Line: %d Col: %d\n", line,col);
+            System.out.println(scopstr);
+            landc+=URLEncoder.encode(scopstr,"UTF-8");
+
+            if (result != null) {
+                String res=result.toString();
+                System.out.println(res);
+                res=URLEncoder.encode(res,"UTF-8");
+                landc+="&result=";
+                landc+=res;
+            }
+
+            //String ur = "http://localhost:8080/enqueue?"+landc;
+            String ur = "http://cs263proj.appspot.com/enqueue?"+landc;
+            URL url = new URL(ur);
+            Object obj = url.getContent();
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
         System.out.println("Next?");
         try{
             System.in.read();

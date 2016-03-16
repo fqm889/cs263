@@ -44,15 +44,15 @@ public class Intepreter {
             String content;
             while((content = bufferedReader.readLine() )!=null){
                 stringBuilder.append(content);
-                stringBuilder.append("</br>");
+                stringBuilder.append("\n");
             }
             exeprogram = stringBuilder.toString();
         } catch (IOException e) {
             e.printStackTrace();
         }
         //String u=URLEncoder.encode("http://localhost:8080/datastore?program=" + exeprogram, "UTF-8");
-        //String url = "http://cs263proj.appspot.com/datastore";
-        String url = "http://localhost:8080/datastore";
+        String url = "http://cs263proj.appspot.com/datastore";
+        //String url = "http://localhost:8080/datastore";
         HttpClient httpClient = new HttpClient();
         PostMethod postMethod = new PostMethod(url);
         postMethod.addParameter("program", exeprogram);

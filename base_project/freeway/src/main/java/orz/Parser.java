@@ -16,7 +16,7 @@ public class Parser {
 
     static List<Token> GetWordList(InputStream input){
         List<Token> list = new LinkedList();
-        int tmp,line=0,col=0,curline=-1,curcol=0;
+        int tmp,line=1,col=1,curline=-1,curcol=0;
         String cur="";
         try {
             while ((tmp = input.read())!=-1){
@@ -66,7 +66,7 @@ public class Parser {
                 }
                 if (c=='\n'){
                     line++;
-                    col=0;
+                    col=1;
                 }
                 else {
                     col++;

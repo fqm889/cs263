@@ -48,8 +48,8 @@ public class DebugHandler {
                 landc+=res;
             }
 
-            String ur = "http://localhost:8080/enqueue?"+landc;
-            //String ur = "http://cs263proj.appspot.com/enqueue?"+landc;
+            //String ur = "http://localhost:8080/enqueue?"+landc;
+            String ur = "http://cs263proj.appspot.com/enqueue?"+landc;
             URL url = new URL(ur);
             Object obj = url.getContent();
         }

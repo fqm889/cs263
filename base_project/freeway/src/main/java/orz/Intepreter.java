@@ -14,7 +14,8 @@ import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.methods.PostMethod;
 
-public class Intepreter {
+public class
+Intepreter {
     String file;
     Server server;
     public Intepreter(String filename) {
@@ -40,7 +41,7 @@ public class Intepreter {
     }
 
     public static void main(String[] args) {
-        String filename="/Users/sicongfeng/Documents/Code/GAE/cs263/gae/cs263/base_project/freeway/src/main/java/orz/test.clj";
+        String filename=args[0];
         String exeprogram="";
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(
@@ -53,7 +54,7 @@ public class Intepreter {
             }
             exeprogram = stringBuilder.toString();
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         //String u=URLEncoder.encode("http://localhost:8080/datastore?program=" + exeprogram, "UTF-8");
         String url = "http://cs263proj.appspot.com/datastore";
@@ -61,13 +62,13 @@ public class Intepreter {
         HttpClient httpClient = new HttpClient();
         PostMethod postMethod = new PostMethod(url);
         postMethod.addParameter("program", exeprogram);
-        postMethod.addParameter("port", "9000");
+        postMethod.addParameter("port", "9020");
         try {
             httpClient.executeMethod(postMethod);
         } catch (HttpException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
 
         /*try {

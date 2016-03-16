@@ -1,6 +1,6 @@
-(defn func [x] (+ x 1))
-
-(func 3)
-(loop [a -3] (if (>= a 0) (+ a 10) (recur (func a))))
+(defn inc [x] (+ x 1))
+(inc 3)
+(def y -3)
+(loop [a y] (if (>= a 0) (+ a 10) (recur (inc a))))
 
 

@@ -26,7 +26,7 @@ public class Server implements Runnable {
     public void run() {
         HttpServer server = null;
         try {
-            server = HttpServer.create(new InetSocketAddress(9000), 0);
+            server = HttpServer.create(new InetSocketAddress(9020), 0);
         } catch (IOException e) {
             e.printStackTrace();
         }

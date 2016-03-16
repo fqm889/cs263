@@ -51,8 +51,8 @@ public class Intepreter {
             e.printStackTrace();
         }
         //String u=URLEncoder.encode("http://localhost:8080/datastore?program=" + exeprogram, "UTF-8");
-        //String url = "http://cs263proj.appspot.com/datastore";
-        String url = "http://localhost:8080/datastore";
+        String url = "http://cs263proj.appspot.com/datastore";
+        //String url = "http://localhost:8080/datastore";
         HttpClient httpClient = new HttpClient();
         PostMethod postMethod = new PostMethod(url);
         postMethod.addParameter("program", exeprogram);

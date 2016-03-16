@@ -3,6 +3,7 @@ package orz;
 import orz.Type.BoolValue;
 import orz.Type.Primitive.*;
 import orz.Type.Value;
+import java.util.Iterator;
 
 import java.util.LinkedHashMap;
 
@@ -123,6 +124,23 @@ public class Scope {
 
     @Override
     public String toString() {
-        return env.toString();
+        String ans="{\"scope\":[";
+        for (Iterator it =  env.keySet().iterator();it.hasNext();)
+        {
+            String key = (String)it.next();
+            ans+="{\"sym\":\""+key+"\",";
+            LinkedHashMap<String,Value> tmp = env.get(key);
+            for (Iterator it1 = tmp .keySet().iterator();it1.hasNext();){
+                String key1=(String)it1.next();
+                Value v = tmp.get(key1);
+                ans+="\""+key1+"\":\""+v.toString()+"\",";
+            }
+            ans=ans.substring(0,ans.length()-1);
+            ans+="},";
+            //System.out.println( key+"="+ map.get(key));
+        }
+        ans=ans.substring(0,ans.length()-1);
+        ans+="]";
+        return ans;
     }
 }

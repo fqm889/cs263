@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpException;
+import org.apache.commons.httpclient.HttpStatus;
+import org.apache.commons.httpclient.methods.PostMethod;
 
 public class Intepreter {
     String file;
@@ -40,15 +44,27 @@ public class Intepreter {
             String content;
             while((content = bufferedReader.readLine() )!=null){
                 stringBuilder.append(content);
-                stringBuilder.append('\n');
+                stringBuilder.append("</br>");
             }
             exeprogram = stringBuilder.toString();
         } catch (IOException e) {
             e.printStackTrace();
         }
         //String u=URLEncoder.encode("http://localhost:8080/datastore?program=" + exeprogram, "UTF-8");
-
+        //String url = "http://cs263proj.appspot.com/datastore";
+        String url = "http://localhost:8080/datastore";
+        HttpClient httpClient = new HttpClient();
+        PostMethod postMethod = new PostMethod(url);
+        postMethod.addParameter("program", exeprogram);
         try {
+            httpClient.executeMethod(postMethod);
+        } catch (HttpException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        /*try {
             String ur=URLEncoder.encode( exeprogram, "UTF-8");
             //ur = "http://localhost:8080/datastore?program="+ur;
             ur = "http://cs263proj.appspot.com/datastore?program="+ur;
@@ -57,7 +73,7 @@ public class Intepreter {
         }
         catch (Exception e){
             //System.out.println(e.toString());
-        }
+        }*/
         System.out.print(exeprogram);
         Intepreter i = new Intepreter(filename);
         Value v = i.interp(filename);

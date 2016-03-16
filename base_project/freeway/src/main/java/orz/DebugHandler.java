@@ -35,6 +35,7 @@ public class DebugHandler {
             String scopstr=scope.toString();
             System.out.printf("Line: %d Col: %d\n", line,col);
             System.out.println(scopstr);
+            scopstr+=",\"line\":\""+String.valueOf(line)+"\",\"col\":\""+String.valueOf(col)+"\"}";
             landc+=URLEncoder.encode(scopstr,"UTF-8");
 
             if (result != null) {
@@ -45,8 +46,8 @@ public class DebugHandler {
                 landc+=res;
             }
 
-            //String ur = "http://localhost:8080/enqueue?"+landc;
-            String ur = "http://cs263proj.appspot.com/enqueue?"+landc;
+            String ur = "http://localhost:8080/enqueue?"+landc;
+            //String ur = "http://cs263proj.appspot.com/enqueue?"+landc;
             URL url = new URL(ur);
             Object obj = url.getContent();
         }
